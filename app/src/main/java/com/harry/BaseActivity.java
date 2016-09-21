@@ -1,4 +1,4 @@
-package com.harry.test;
+package com.harry;
 
 import android.app.Activity;
 import android.content.Intent;
