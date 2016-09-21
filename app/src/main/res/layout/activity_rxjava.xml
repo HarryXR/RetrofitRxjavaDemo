@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/rxjava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RxJava"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:id="@+id/just"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Just Map"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:id="@+id/from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:id="@+id/scheduler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="scheduler"
+        android:layout_margin="5dp"/>
+
+</LinearLayout>
