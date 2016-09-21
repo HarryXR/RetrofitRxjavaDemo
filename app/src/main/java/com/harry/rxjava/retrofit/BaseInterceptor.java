@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 20015 MaiNaEr All rights reserved
  */
-package com.harry.test.rxjava.retrofit;
+package com.harry.rxjava.retrofit;
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ public class BaseInterceptor implements Interceptor {
 
         HttpUrl url=original.url().newBuilder()
             .addQueryParameter("count", "5")
-            .addQueryParameter("start", "0")
+//            .addQueryParameter("start", "0")
             .build();
 
         Request request = original.newBuilder()

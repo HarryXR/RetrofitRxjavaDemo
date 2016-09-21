@@ -1,13 +1,13 @@
 /*
  * Copyright (C) 20015 MaiNaEr All rights reserved
  */
-package com.harry.test.rxjava;
+package com.harry.rxjava;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.harry.test.R;
+import com.harry.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
