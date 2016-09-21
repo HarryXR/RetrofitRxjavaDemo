@@ -1,3 +1,4 @@
 # RetrofitRxjavaDemo
 ##RxJava +Retrofit demo
-![image](https://github.com/zhengwenming/WMPlayer/blob/master/WMPlayer/Resource/WMPlayer.gif)   
+![image](https://github.com/HarryXR/RetrofitRxjavaDemo/blob/master/screenshots%2Fmy.gif)
+
