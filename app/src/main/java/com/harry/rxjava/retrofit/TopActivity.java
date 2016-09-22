@@ -60,7 +60,7 @@ public class TopActivity extends Activity implements MovieController.LoadListene
 
     private void load() {
         MovieRequest request = new MovieRequest();
-        request.start = mLv.getCurrentPage() * 5;
+        request.start = (mLv.getCurrentPage() - 1) * 5;//初始值start=0
         mController.load(request);
     }
 
@@ -118,7 +118,7 @@ public class TopActivity extends Activity implements MovieController.LoadListene
                 else {
                     tag = (RoundButton) holder.fl.getTag();
                 }
-                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(100, 50);
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(150, 80);
                 tag.setLayoutParams(params);
                 holder.fl.setTag(tag);
                 tag.setText(genre);
