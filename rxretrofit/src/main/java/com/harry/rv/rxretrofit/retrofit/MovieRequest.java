@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 20015 MaiNaEr All rights reserved
  */
-package com.harry.rxjava.retrofit;
+package com.harry.rv.rxretrofit.retrofit;
 
 import java.io.Serializable;
 

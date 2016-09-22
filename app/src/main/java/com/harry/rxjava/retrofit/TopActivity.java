@@ -17,8 +17,10 @@ import com.harry.R;
 import com.harry.adapter.AfRecyclerAdapter;
 import com.harry.adapter.AfViewHolder;
 import com.harry.refresh.SwipyRefreshLayoutDirection;
-import com.harry.rxjava.controller.MovieController;
-import com.harry.rxjava.model.MovieResponse;
+import com.harry.rv.rxretrofit.controller.MovieController;
+import com.harry.rv.rxretrofit.model.MovieResponse;
+import com.harry.rv.rxretrofit.retrofit.MovieRequest;
+import com.harry.util.AppUtils;
 import com.harry.view.FlowLayout;
 import com.harry.view.RefreshRecyclerView;
 import com.harry.view.RoundButton;
@@ -118,7 +120,8 @@ public class TopActivity extends Activity implements MovieController.LoadListene
                 else {
                     tag = (RoundButton) holder.fl.getTag();
                 }
-                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(150, 80);
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(AppUtils.dp2px(TopActivity.this,47),
+                    AppUtils.dp2px(TopActivity.this,23));
                 tag.setLayoutParams(params);
                 holder.fl.setTag(tag);
                 tag.setText(genre);

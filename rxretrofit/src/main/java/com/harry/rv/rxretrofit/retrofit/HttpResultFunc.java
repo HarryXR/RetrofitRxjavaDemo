@@ -1,9 +1,9 @@
 /*
  * Copyright (C) 20015 MaiNaEr All rights reserved
  */
-package com.harry.rxjava.retrofit;
+package com.harry.rv.rxretrofit.retrofit;
 
-import com.harry.rxjava.model.BaseResponse;
+import com.harry.rv.rxretrofit.model.BaseResponse;
 
 import rx.functions.Func1;
 

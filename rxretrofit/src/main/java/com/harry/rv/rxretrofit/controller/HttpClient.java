@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 20015 MaiNaEr All rights reserved
  */
-package com.harry.rxjava.controller;
+package com.harry.rv.rxretrofit.controller;
 
-import com.harry.rxjava.api.MovieService;
-import com.harry.rxjava.model.BaseResponse;
-import com.harry.rxjava.retrofit.BaseInterceptor;
-import com.harry.rxjava.retrofit.HttpResultFunc;
+import com.harry.rv.rxretrofit.api.MovieService;
+import com.harry.rv.rxretrofit.model.BaseResponse;
+import com.harry.rv.rxretrofit.retrofit.BaseInterceptor;
+import com.harry.rv.rxretrofit.retrofit.HttpResultFunc;
 
 import java.util.concurrent.TimeUnit;
 

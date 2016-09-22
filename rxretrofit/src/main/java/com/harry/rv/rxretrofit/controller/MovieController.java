@@ -1,15 +1,16 @@
 /*
  * Copyright (C) 20015 MaiNaEr All rights reserved
  */
-package com.harry.rxjava.controller;
+package com.harry.rv.rxretrofit.controller;
 
-import com.harry.rxjava.model.BaseResponse;
-import com.harry.rxjava.model.MovieResponse;
-import com.harry.rxjava.retrofit.MovieRequest;
+import com.harry.rv.rxretrofit.model.BaseResponse;
+import com.harry.rv.rxretrofit.model.MovieResponse;
+import com.harry.rv.rxretrofit.retrofit.MovieRequest;
 
 import java.util.List;
 
 import rx.Observable;
+
 
 /**
  * 类/接口描述

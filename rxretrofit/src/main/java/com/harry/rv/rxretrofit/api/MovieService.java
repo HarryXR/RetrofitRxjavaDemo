@@ -1,10 +1,10 @@
 /*
  * Copyright (C) 20015 MaiNaEr All rights reserved
  */
-package com.harry.rxjava.api;
+package com.harry.rv.rxretrofit.api;
 
-import com.harry.rxjava.model.BaseResponse;
-import com.harry.rxjava.model.MovieResponse;
+import com.harry.rv.rxretrofit.model.BaseResponse;
+import com.harry.rv.rxretrofit.model.MovieResponse;
 
 import java.util.List;
 
