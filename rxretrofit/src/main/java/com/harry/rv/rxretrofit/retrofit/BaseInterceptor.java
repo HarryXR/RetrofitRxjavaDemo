@@ -14,7 +14,6 @@ import okhttp3.Response;
  * 类/接口描述
  *
  * @author Harry
- * @date 2016/9/20.
  */
 public class BaseInterceptor implements Interceptor {
     @Override
@@ -22,8 +21,10 @@ public class BaseInterceptor implements Interceptor {
         Request original = chain.request();
 
         HttpUrl url=original.url().newBuilder()
-            .addQueryParameter("count", "5")
-//            .addQueryParameter("start", "0")
+            .addQueryParameter("client", "Android")
+        .addQueryParameter("uid", 52+"")
+        .addQueryParameter("token", "e54517e6605e224af68b803a0cc8eb63")
+        .addQueryParameter("uuid", "3658705632087430484")
             .build();
 
         Request request = original.newBuilder()

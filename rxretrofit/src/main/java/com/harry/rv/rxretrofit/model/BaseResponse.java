@@ -9,11 +9,20 @@ import java.io.Serializable;
  * 类/接口描述
  *
  * @author Harry
- * @date 2016/9/19.
  */
 public class BaseResponse<T> implements Serializable {
     public int count;
     public int start;
     public int total;
-    public T subjects;
+
+    /**
+     * 数据
+     */
+    public T data;
+    private int status;
+
+    /**
+     * 消息
+     */
+    private String message;
 }

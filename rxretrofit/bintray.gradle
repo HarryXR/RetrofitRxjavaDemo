@@ -1,31 +1,117 @@
-apply plugin: 'com.jfrog.bintray'
-
-bintray {
-    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
-    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    configurations = ['archives']
-    pkg {
-        repo = 'maven' //'generic'
-        name = project.property('PRJ_NAME')
-        userOrg = user
-        licenses = ['Apache-2.0']
-        websiteUrl = project.property('PRJ_URL')
-        vcsUrl = project.property('SCM_URL')
-        publish = project.has("release")
-        version {
-            name = project.property('ART_VER')
-            desc = project.property('PKG_VER_DESC')
-            vcsTag = project.property('SCM_TAG')
-            //attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
-        }
-        /*
-        mavenCentralSync {
-            sync = true //Optional (true by default). Determines whether to sync the version to Maven Central.
-            user = 'userToken' //OSS user token
-            password = 'paasword' //OSS user password
-            close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
-        }
-       */
-        // full config please visit https://github.com/bintray/gradle-bintray-plugin
-    }
-}
+//
+//apply plugin: 'com.jfrog.bintray'
+//apply plugin: "com.jfrog.artifactory"
+//
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += configurations.compile
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//javadoc {
+//    options{
+//        encoding "UTF-8"
+//        charSet 'UTF-8'
+//        author true
+//        version true
+//        links "http://docs.oracle.com/javase/7/docs/api"
+//        title ART_ARTIFACT
+//    }
+//}
+//
+//
+//def pomConfig = {
+//    licenses {
+//        license {
+//            name "The Apache Software License, Version 2.0"
+//            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+//            distribution "repo"
+//        }
+//    }
+//    developers {
+//        developer {
+//            id DEV_ID
+//            name DEV_ID
+//            email DEV_EMAIL
+//        }
+//    }
+//}
+//
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            artifactId ART_ARTIFACT
+//            artifact javadocJar
+//            artifact sourcesJar
+//
+//            pom{
+//                packaging 'aar'
+//            }
+//            pom.withXml {
+//                def root = asNode()
+//                root.appendNode('description', PRJ_DESC)
+//                root.children().last() + pomConfig
+//            }
+//        }
+//    }
+//}
+//
+//afterEvaluate {
+//    publishing.publications.mavenJava.artifact(bundleRelease)
+//}
+//
+//// load from root project's 'local.properties'
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//
+//bintray {
+//    user = properties.getProperty("user")
+//    key = properties.getProperty("apiKey")
+//    //user = hasProperty("bintrayUser")?getProperty("bintrayUser"):getProperty("BINTRAY_USER")
+//    //key = hasProperty("bintrayKey")?getProperty("bintrayKey"):getProperty("BINTRAY_KEY")
+//
+//    publications = ['mavenJava']
+//    publish = true
+//
+//    pkg {
+//        repo = 'maven'
+//        name = PRJ_NAME
+//        desc = PRJ_DESC
+//        websiteUrl = SCM_URL
+////        issueTrackerUrl = PROJ_ISSUETRACKERURL
+//        vcsUrl = SCM_REPO
+//        licenses = ['Apache-2.0']
+//        publicDownloadNumbers = true
+//    }
+//}
+//
+//artifactory {
+//    contextUrl = 'http://oss.jfrog.org/artifactory'
+//    resolve {
+//        repository {
+//            repoKey = 'libs-release'
+//        }
+//    }
+//    publish {
+//        repository {
+//            repoKey = 'oss-snapshot-local' //The Artifactory repository key to publish to
+//            username = bintray.user
+//            password = bintray.key
+//            maven = true
+//        }
+//        defaults {
+//            publications('mavenJava')
+//            publishArtifacts = true
+//        }
+//    }
+//}

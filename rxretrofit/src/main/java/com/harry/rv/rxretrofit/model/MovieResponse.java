@@ -10,7 +10,6 @@ import java.util.List;
  * 类/接口描述
  *
  * @author Harry
- * @date 2016/9/19.
  */
 public class MovieResponse implements Serializable {
     public String id;

@@ -23,10 +23,9 @@ import rx.schedulers.Schedulers;
  * 类/接口描述
  *
  * @author Harry
- * @date 2016/9/19.
  */
 public class HttpClient<L> {
-    public static final String BASE_URL = "https://api.douban.com/v2/movie/";
+    public static final String BASE_URL = "https://api.douban.com/v2/movie/";//http://api-test.mainaer.com/v3.0/
     Retrofit retrofit;
     MovieService service;
 
@@ -77,7 +76,9 @@ public class HttpClient<L> {
             });
         }
 
-        public abstract Observable<BaseResponse<T>> getObservable();
+        protected Observable<BaseResponse<T>> getObservable() {
+            return null;
+        }
 
         public abstract void onSuccess(T out);
 

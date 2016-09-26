@@ -4,39 +4,36 @@
 package com.harry.rv.rxretrofit.controller;
 
 import com.harry.rv.rxretrofit.model.BaseResponse;
-import com.harry.rv.rxretrofit.model.MovieResponse;
-import com.harry.rv.rxretrofit.retrofit.MovieRequest;
+import com.harry.rv.rxretrofit.model.PostResponse;
 
-import java.util.List;
-
+import okhttp3.RequestBody;
 import rx.Observable;
-
 
 /**
  * 类/接口描述
  *
  * @author Harry
  */
-public class MovieController extends HttpClient<MovieController.LoadListener> {
+public class UploadController extends HttpClient<UploadController.LoadListener> {
 
-    public MovieController(LoadListener l) {
+    public UploadController(LoadListener l) {
         super(l);
     }
 
-    public void load(MovieRequest request) {
+    public void load(RequestBody request) {
         LoadTask task = new LoadTask();
         task.load(request);
     }
 
-    private class LoadTask extends BaseTask<MovieRequest,List<MovieResponse>> {
+    private class LoadTask extends BaseTask<RequestBody,PostResponse> {
 
         @Override
-        public Observable<BaseResponse<List<MovieResponse>>> getObservable() {
-            return service.getMovie(input.start);
+        public Observable<BaseResponse<PostResponse>> getObservable() {
+            return service.upload(input);
         }
 
         @Override
-        public void onSuccess(List<MovieResponse> out) {
+        public void onSuccess(PostResponse out) {
             listener.onSuccess(out);
         }
 
@@ -52,7 +49,7 @@ public class MovieController extends HttpClient<MovieController.LoadListener> {
     }
 
     public interface LoadListener {
-        void onSuccess(List<MovieResponse> out);
+        void onSuccess(PostResponse out);
 
         void onError(Throwable error);
 

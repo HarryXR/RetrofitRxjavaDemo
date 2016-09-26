@@ -3,6 +3,7 @@
 
     <uses-permission android:name="android.permission.REORDER_TASKS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -23,6 +24,9 @@
         <activity android:name=".rxjava.RxJavaActivity"/>
         <activity android:name=".rxjava.retrofit.TopActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".rxjava.UploadActivity"
+                  android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
