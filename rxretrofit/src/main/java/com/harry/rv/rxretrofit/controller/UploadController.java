@@ -3,9 +3,13 @@
  */
 package com.harry.rv.rxretrofit.controller;
 
+import com.harry.rv.rxretrofit.model.BaseRequest;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.model.PostResponse;
 
+import java.io.File;
+
+import okhttp3.Headers;
 import okhttp3.RequestBody;
 import rx.Observable;
 
@@ -13,38 +17,54 @@ import rx.Observable;
  * 类/接口描述
  *
  * @author Harry
+ * @date 2016/9/28.
  */
-public class UploadController extends HttpClient<UploadController.LoadListener> {
-
-    public UploadController(LoadListener l) {
-        super(l);
+public class UploadController extends AppUploadController<UploadController.LoadListener> {
+    public UploadController(LoadListener o) {
+        super(o);
     }
 
-    public void load(RequestBody request) {
-        LoadTask task = new LoadTask();
-        task.load(request);
+    public void save(BaseRequest request, File... files) {
+        SaveTask task = new SaveTask(request, files);
+        task.load(files[0]);
     }
 
-    private class LoadTask extends BaseTask<RequestBody,PostResponse> {
+    public class SaveTask extends MultiUploadTask<PostResponse> {
+        BaseRequest req;
 
-        @Override
-        public Observable<BaseResponse<PostResponse>> getObservable() {
-            return service.upload(input);
+        public SaveTask(BaseRequest request) {
+            req = request;
+        }
+
+        public SaveTask(BaseRequest request, File... file) {
+            super(file);
+            req = request;
+            files = file;
         }
 
         @Override
-        public void onSuccess(PostResponse out) {
-            listener.onSuccess(out);
+        protected Observable<BaseResponse<PostResponse>> getObservable() {
+            super.getObservable();
+            return service.upload(builder.build());
         }
 
         @Override
-        public void onErrors(Throwable error) {
+        protected void onUploadFailure(File file, Throwable error) {
             listener.onError(error);
         }
 
         @Override
-        public void onComplete() {
-            listener.onComplete();
+        protected void onUploadSuccess(File file, PostResponse out) {
+            listener.onSuccess(out);
+        }
+
+        @Override
+        protected void upload() {
+            super.upload();
+            builder.addPart(Headers.of("Content-Disposition", "form-data; name=uid"),
+                RequestBody.create(null, req.uid + ""));
+            builder.addPart(Headers.of("Content-Disposition", "form-data; name=token"),
+                RequestBody.create(null, req.token));
         }
     }
 

@@ -9,7 +9,9 @@ import com.harry.rv.rxretrofit.model.PostResponse;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -33,4 +35,8 @@ public interface MovieService {
     @POST("face")
     Observable<BaseResponse<PostResponse>> upload(@Part("file\"; filename=\"microMsg.1460895294032.jpg\"") RequestBody
                                                   imgs);
+
+    @POST("face")
+    Observable<BaseResponse<PostResponse>> upload(@Body MultipartBody
+                                                      imgs);
 }

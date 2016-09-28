@@ -22,9 +22,9 @@ public class BaseInterceptor implements Interceptor {
 
         HttpUrl url=original.url().newBuilder()
             .addQueryParameter("client", "Android")
-        .addQueryParameter("uid", 52+"")
-        .addQueryParameter("token", "e54517e6605e224af68b803a0cc8eb63")
-        .addQueryParameter("uuid", "3658705632087430484")
+//        .addQueryParameter("uid", 52+"")
+//        .addQueryParameter("token", "e54517e6605e224af68b803a0cc8eb63")
+        .addQueryParameter("uuid", "-1456468860997233324")
             .build();
 
         Request request = original.newBuilder()

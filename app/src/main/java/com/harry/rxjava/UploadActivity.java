@@ -8,12 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.harry.rv.rxretrofit.controller.UploadController;
+import com.harry.rv.rxretrofit.model.BaseRequest;
 import com.harry.rv.rxretrofit.model.PostResponse;
 
 import java.io.File;
-
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
 /**
  * 类/接口描述
@@ -28,14 +26,14 @@ public class UploadActivity extends Activity implements UploadController.LoadLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         File file = new File("/storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1463713109016.jpg");
-        RequestBody requestBody1 = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         mController = new UploadController(this);
-        mController.load(requestBody1);
+        mController.save(new BaseRequest(),file);
     }
 
     @Override
     public void onSuccess(PostResponse out) {
         Log.e(this.getLocalClassName(),out.baseurl);
+        //09-28 10:49:17.163 12658-12658/com.harry E/rxjava.UploadActivity: http://img-test.mainaer.com/uploads/user/photos/2016-09-28/612f4bc08167cf9ceda670baac3fd0ecefe9c8ad.jpg
     }
 
     @Override
