@@ -3,6 +3,7 @@
  */
 package com.harry.rv.rxretrofit.controller;
 
+import com.harry.rv.rxretrofit.MyApplication;
 import com.harry.rv.rxretrofit.api.MovieService;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.retrofit.BaseInterceptor;
@@ -11,6 +12,7 @@ import com.harry.rv.rxretrofit.retrofit.NetworkInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -29,14 +31,15 @@ public class HttpClient<L> {
     public static final String BASE_URL = "http://api-test.mainaer.com/v3.0/";//http://api-test.mainaer.com/v3.0/
     Retrofit retrofit;
     MovieService service;
-
+    Cache cache = new Cache(MyApplication.getContext().getCacheDir(), 10 * 1024 * 1024);
     L listener;
 
     public HttpClient() {
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         client.connectTimeout(5, TimeUnit.SECONDS);
-        client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor());
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(client.build()).addConverterFactory(
+        client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);
+        OkHttpClient okHttpClient = client.build();
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addConverterFactory(
             GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         service = retrofit.create(MovieService.class);
     }
@@ -87,5 +90,4 @@ public class HttpClient<L> {
 
         public abstract void onComplete();
     }
-
 }
