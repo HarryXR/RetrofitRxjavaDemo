@@ -7,6 +7,7 @@ import com.harry.rv.rxretrofit.api.MovieService;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.retrofit.BaseInterceptor;
 import com.harry.rv.rxretrofit.retrofit.HttpResultFunc;
+import com.harry.rv.rxretrofit.retrofit.NetworkInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +35,7 @@ public class HttpClient<L> {
     public HttpClient() {
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         client.connectTimeout(5, TimeUnit.SECONDS);
-        client.addInterceptor(new BaseInterceptor());
+        client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor());
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(client.build()).addConverterFactory(
             GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         service = retrofit.create(MovieService.class);
