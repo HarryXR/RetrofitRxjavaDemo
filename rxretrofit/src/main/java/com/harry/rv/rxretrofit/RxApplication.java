@@ -12,7 +12,7 @@ import android.content.Context;
  * @author Harry
  * @date 2016/9/28.
  */
-public class MyApplication extends Application {
+public class RxApplication extends Application {
     private static Context context;
     @Override
     public void onCreate() {

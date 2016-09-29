@@ -3,7 +3,7 @@
  */
 package com.harry.rv.rxretrofit.controller;
 
-import com.harry.rv.rxretrofit.MyApplication;
+import com.harry.rv.rxretrofit.RxApplication;
 import com.harry.rv.rxretrofit.api.MovieService;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.retrofit.BaseInterceptor;
@@ -31,7 +31,7 @@ public class HttpClient<L> {
     public static final String BASE_URL = "http://api-test.mainaer.com/v3.0/";//http://api-test.mainaer.com/v3.0/
     Retrofit retrofit;
     MovieService service;
-    Cache cache = new Cache(MyApplication.getContext().getCacheDir(), 10 * 1024 * 1024);
+    Cache cache = new Cache(RxApplication.getContext().getCacheDir(), 10 * 1024 * 1024);
     L listener;
 
     public HttpClient() {

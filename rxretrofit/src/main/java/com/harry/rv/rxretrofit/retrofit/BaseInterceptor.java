@@ -3,7 +3,7 @@
  */
 package com.harry.rv.rxretrofit.retrofit;
 
-import com.harry.rv.rxretrofit.MyApplication;
+import com.harry.rv.rxretrofit.RxApplication;
 import com.harry.rv.rxretrofit.util.NetworkUtils;
 
 import java.io.IOException;
@@ -36,7 +36,7 @@ public class BaseInterceptor implements Interceptor {
             .url(url)
             .build();
 
-        if (!NetworkUtils.isConnected(MyApplication.getContext())) {
+        if (!NetworkUtils.isConnected(RxApplication.getContext())) {
             request = request.newBuilder()
                 .cacheControl(CacheControl.FORCE_CACHE)
                 .build();
