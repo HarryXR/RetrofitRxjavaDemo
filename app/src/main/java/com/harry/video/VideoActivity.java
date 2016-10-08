@@ -65,8 +65,7 @@ public class VideoActivity extends AppCompatActivity {
 
         mPLayer.setUp("http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4"
             , JCVideoPlayerStandard.SCREEN_LAYOUT_LIST, "嫂子闭眼睛");
-//        mPLayer.thumbImageView.setImageURI(Uri.parse("http://p.qpic"
-//            + ".cn/videoyun//02449_43b6f696980311e59ed467f22794e792_1/640"));
+
 //        mPLayer.startWindowFullscreen();
     }
 
