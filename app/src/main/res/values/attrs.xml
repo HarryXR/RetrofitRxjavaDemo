@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LineIndicator">
+        <attr name="lineAlertColor" format="color|reference" />
+        <attr name="lineAlertSize" format="dimension" />
+        <attr name="lineProgressBackground" format="color" />
+        <attr name="lineProgressColor" format="color" />
+        <attr name="lineIndicatorTextSize" format="dimension" />
+        <attr name="lineIndicatorTextColor" format="color" />
+        <attr name="lineIndicatorBackground" format="color" />
+    </declare-styleable>
+</resources>

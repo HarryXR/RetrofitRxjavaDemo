@@ -9,4 +9,19 @@
     <color name="Indigo_colorPrimaryDark">#303f9f</color>
     <color name="Indigo_colorPrimary">#3f51b5</color>
     <color name="Indigo_nav_color">#4675FF</color>
+
+    <color name="normal_gray">#FFDFDFDF</color>
+    <color name="normal_white">#FFFFFFFF</color>
+    <color name="normal_green">#FF62CC74</color>
+    <color name="normal_red">#FFF96650</color>
+    <color name="normal_yellow">#FFFFCC00</color>
+    <color name="indicator_center">#FFD8D5D5</color>
+    <color name="indicator_light">#FFEFEFEF</color>
+    <color name="indicator_gray">@color/normal_gray</color>
+
+    <color name="line_alert_color">@color/normal_gray</color>
+    <color name="line_progress_background">@color/normal_gray</color>
+    <color name="line_progress_color">@color/normal_green</color>
+    <color name="line_indicator_text_color">@color/normal_white</color>
+    <color name="line_indicator_background">@color/normal_green</color>
 </resources>

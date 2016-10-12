@@ -15,6 +15,7 @@
  */
 package com.harry.util;
 
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.Editable;
@@ -41,6 +42,7 @@ public final class ViewUtils {
      *
      * @param view view
      * @param d    background drawable
+     *
      * @see android.view.View#setBackground(android.graphics.drawable.Drawable)
      */
     //--> for android sdk compatibility
@@ -90,5 +92,36 @@ public final class ViewUtils {
     public static final void setEditTextSelectionToEnd(EditText editText) {
         Editable editable = editText.getEditableText();
         Selection.setSelection(editable, editable.toString().length());
+    }
+
+    public static int getTextHeight(Paint paint) {
+        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+        return (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
+    }
+
+    public static int getBaseLine(Paint paint) {
+        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+        return (int) Math.abs(fontMetrics.bottom);
+    }
+
+    /**
+     * 获取文字的宽度
+     *
+     * @param paint
+     * @param str
+     *
+     * @return
+     */
+    public static int getTextWidth(Paint paint, String str) {
+        int iRet = 0;
+        if (str != null && str.length() > 0) {
+            int len = str.length();
+            float[] widths = new float[len];
+            paint.getTextWidths(str, widths);
+            for (int j = 0; j < len; j++) {
+                iRet += (int) Math.ceil(widths[j]);
+            }
+        }
+        return iRet;
     }
 }
