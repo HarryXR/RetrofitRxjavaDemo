@@ -3,6 +3,8 @@
  */
 package com.harry.rv.rxretrofit.controller;
 
+import android.content.Context;
+
 import com.harry.rv.rxretrofit.model.BaseResponse;
 
 import java.io.File;
@@ -20,8 +22,8 @@ import rx.Observable;
  */
 public class AppUploadController<L> extends HttpClient<L> {
 
-    public AppUploadController(L l) {
-        super(l);
+    public AppUploadController(Context context,L l) {
+        super(context,l);
     }
 
     protected abstract class UploadTask<T> extends BaseTask<File, T> {

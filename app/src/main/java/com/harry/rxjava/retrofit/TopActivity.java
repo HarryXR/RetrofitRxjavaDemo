@@ -56,7 +56,7 @@ public class TopActivity extends Activity implements MovieController.LoadListene
         mLv.setPageSize(5);
         mAdapter = new ListAdapter(this);
         mLv.setAdapter(mAdapter);
-        mController = new MovieController(this);
+        mController = new MovieController(this,this);
         load();
     }
 

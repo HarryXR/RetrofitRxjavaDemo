@@ -3,6 +3,8 @@
  */
 package com.harry.rv.rxretrofit.controller;
 
+import android.content.Context;
+
 import com.harry.rv.rxretrofit.model.BaseRequest;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.model.PostResponse;
@@ -20,8 +22,8 @@ import rx.Observable;
  * @date 2016/9/28.
  */
 public class UploadController extends AppUploadController<UploadController.LoadListener> {
-    public UploadController(LoadListener o) {
-        super(o);
+    public UploadController(Context context,LoadListener o) {
+        super(context,o);
     }
 
     public void save(BaseRequest request, File... files) {

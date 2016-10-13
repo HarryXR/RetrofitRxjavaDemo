@@ -3,6 +3,8 @@
  */
 package com.harry.rv.rxretrofit.controller;
 
+import android.content.Context;
+
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.model.MovieResponse;
 import com.harry.rv.rxretrofit.retrofit.MovieRequest;
@@ -19,8 +21,8 @@ import rx.Observable;
  */
 public class MovieController extends HttpClient<MovieController.LoadListener> {
 
-    public MovieController(LoadListener l) {
-        super(l);
+    public MovieController(Context context,LoadListener l) {
+        super(context,l);
     }
 
     public void load(MovieRequest request) {

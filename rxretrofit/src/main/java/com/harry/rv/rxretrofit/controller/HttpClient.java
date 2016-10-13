@@ -3,7 +3,8 @@
  */
 package com.harry.rv.rxretrofit.controller;
 
-import com.harry.rv.rxretrofit.RxApplication;
+import android.content.Context;
+
 import com.harry.rv.rxretrofit.api.MovieService;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.retrofit.BaseInterceptor;
@@ -28,13 +29,14 @@ import rx.schedulers.Schedulers;
  * @author Harry
  */
 public class HttpClient<L> {
-    public static final String BASE_URL = "http://api-test.mainaer.com/v3.0/";//http://api-test.mainaer.com/v3.0/
+    public static final String BASE_URL = "https://api.douban.com/v2/movie/";//http://api-test.mainaer.com/v3.0/
     Retrofit retrofit;
     MovieService service;
-    Cache cache = new Cache(RxApplication.getContext().getCacheDir(), 10 * 1024 * 1024);
+    Cache cache;
     L listener;
+    Context context;
 
-    public HttpClient() {
+    public HttpClient(Context context) {
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         client.connectTimeout(5, TimeUnit.SECONDS);
         client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);
@@ -42,14 +44,16 @@ public class HttpClient<L> {
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addConverterFactory(
             GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         service = retrofit.create(MovieService.class);
+        cache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
     }
 
     public void setListener(L l) {
         this.listener = l;
     }
 
-    public HttpClient(L l) {
-        this();
+    public HttpClient(Context context,L l) {
+        this(context);
+        this.context=context;
         setListener(l);
     }
 

@@ -36,7 +36,7 @@ public class UploadActivity extends Activity implements UploadController.LoadLis
         setContentView(R.layout.activity_upload);
         ButterKnife.bind(this);
         File file = new File("/storage/emulated/0/tencent/MicroMsg/WeiXin/mmexport1463713109016.jpg");
-        mController = new UploadController(this);
+        mController = new UploadController(this,this);
         mController.save(new BaseRequest(), file);
     }
 

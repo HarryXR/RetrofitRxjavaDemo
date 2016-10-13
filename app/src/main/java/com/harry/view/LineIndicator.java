@@ -273,7 +273,7 @@ public class LineIndicator extends View {
         else {
             mProgress = progress;
         }
-
+//        animateIndicator(mProgress);
         postInvalidate();
     }
 

@@ -19,7 +19,7 @@
     <color name="indicator_light">#FFEFEFEF</color>
     <color name="indicator_gray">@color/normal_gray</color>
 
-    <color name="line_alert_color">@color/normal_gray</color>
+    <color name="line_alert_color">#666666</color>
     <color name="line_progress_background">@color/normal_gray</color>
     <color name="line_progress_color">@color/normal_green</color>
     <color name="line_indicator_text_color">@color/normal_white</color>
