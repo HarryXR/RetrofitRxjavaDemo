@@ -1,7 +1,7 @@
 # RetrofitRxjavaDemo
 ##RxJava +Retrofit demo
 ![screenshot](https://github.com/HarryXR/RetrofitRxjavaDemo/blob/master/gif%2Fmy.gif) 
-![screenshot](https://github.com/HarryXR/RetrofitRxjavaDemo/blob/master/gif/my2.gif) 
+![screenshot](https://github.com/HarryXR/RetrofitRxjavaDemo/blob/master/gif/8.png) 
 - Rxjava,Retrofit2
 - Fresco图片库
 - RecyclerView 上拉下拉
