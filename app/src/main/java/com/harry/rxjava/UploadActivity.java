@@ -44,8 +44,7 @@ public class UploadActivity extends Activity implements UploadController.LoadLis
     public void onSuccess(PostResponse out) {
         Log.e(this.getLocalClassName(), out.baseurl);
         mIv.setImageURI(Uri.parse(out.baseurl));
-        //09-28 10:49:17.163 12658-12658/com.harry E/rxjava.UploadActivity: http://img-test.mainaer
-        // .com/uploads/user/photos/2016-09-28/612f4bc08167cf9ceda670baac3fd0ecefe9c8ad.jpg
+
     }
 
     @Override

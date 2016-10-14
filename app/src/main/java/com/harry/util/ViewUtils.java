@@ -104,6 +104,10 @@ public final class ViewUtils {
         return (int) Math.abs(fontMetrics.bottom);
     }
 
+    public static int getHeight(Paint paint) {
+        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+        return (int) Math.abs(fontMetrics.bottom+fontMetrics.top);
+    }
     /**
      * 获取文字的宽度
      *
@@ -123,5 +127,33 @@ public final class ViewUtils {
             }
         }
         return iRet;
+    }
+
+    /**
+     * 计算圆弧长度
+     *
+     * @param radius 圆半径
+     * @param angle  夹角度数（非弧度）
+     * @return
+     */
+    public static float getCirclePathLength(float radius, float angle) {
+        angle = ViewUtils.changeAngleToSingle(angle);
+        return (float) (Math.PI * radius * angle / 180);
+    }
+
+    /**
+     * 将度数转换成0～360之间的值
+     *
+     * @param angle
+     * @return
+     */
+    public static float changeAngleToSingle(float angle) {
+        while (angle >= 360) {
+            angle -= 360;
+        }
+        while (angle < 0) {
+            angle += 360;
+        }
+        return angle;
     }
 }

@@ -24,4 +24,17 @@
     <color name="line_progress_color">@color/normal_green</color>
     <color name="line_indicator_text_color">@color/normal_white</color>
     <color name="line_indicator_background">@color/normal_green</color>
+
+    <color name="circle_background">@color/normal_white</color>
+
+    <color name="circle_title">@color/normal_gray</color>
+    <color name="circle_alert">@color/normal_gray</color>
+    <color name="circle_content">@color/normal_green</color>
+    <color name="circle_unit">@color/normal_green</color>
+
+    <color name="circle_gray">@color/normal_gray</color>
+    <color name="circle_green">@color/normal_green</color>
+    <color name="circle_yellow">@color/normal_yellow</color>
+    <color name="circle_red">@color/normal_red</color>
+    <color name="circle_white">@color/normal_white</color>
 </resources>
