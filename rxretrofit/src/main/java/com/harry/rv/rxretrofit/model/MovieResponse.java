@@ -37,6 +37,6 @@ public class MovieResponse implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        return this.id == ((MovieResponse) o).id;
+        return this.id.equals(((MovieResponse) o).id);
     }
 }

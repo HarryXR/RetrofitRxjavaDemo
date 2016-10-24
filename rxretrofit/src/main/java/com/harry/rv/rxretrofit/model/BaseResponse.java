@@ -18,7 +18,7 @@ public class BaseResponse<T> implements Serializable {
     /**
      * 数据
      */
-    public T data;
+    public T subjects;
     private int status;
 
     /**

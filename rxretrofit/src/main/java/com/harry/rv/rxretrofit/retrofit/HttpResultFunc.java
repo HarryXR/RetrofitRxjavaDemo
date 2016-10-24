@@ -16,6 +16,6 @@ import rx.functions.Func1;
 public class HttpResultFunc<T> implements Func1<BaseResponse<T>,T> {
     @Override
     public T call(BaseResponse<T> tBaseResponse) {
-        return tBaseResponse.data;
+        return tBaseResponse.subjects;
     }
 }

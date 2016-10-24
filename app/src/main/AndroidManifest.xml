@@ -35,6 +35,7 @@
         <activity android:name=".video.VideoActivity"/>
         <activity android:name=".video.MovieRecorderActivity"/>
         <activity android:name=".progress.ProgressActivity"/>
+        <activity android:name=".mvp.TopViewActivity"/>
     </application>
 
 </manifest>

@@ -3,12 +3,8 @@
  */
 package com.harry.rv.rxretrofit.retrofit;
 
-import com.harry.rv.rxretrofit.RxApplication;
-import com.harry.rv.rxretrofit.util.NetworkUtils;
-
 import java.io.IOException;
 
-import okhttp3.CacheControl;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -25,8 +21,7 @@ public class BaseInterceptor implements Interceptor {
         Request original = chain.request();
 
         HttpUrl url=original.url().newBuilder()
-            .addQueryParameter("client", "Android")
-            .addQueryParameter("uuid", "-1456468860997233324")
+            .addQueryParameter("count", 5+"")
             .build();
 
         Request request = original.newBuilder()
@@ -36,12 +31,12 @@ public class BaseInterceptor implements Interceptor {
             .url(url)
             .build();
 
-        if (!NetworkUtils.isConnected(RxApplication.getContext())) {
-            request = request.newBuilder()
-                .cacheControl(CacheControl.FORCE_CACHE)
-                .build();
-            // 没有网络走缓存
-        }
+//        if (!NetworkUtils.isConnected(RxApplication.getContext())) {
+//            request = request.newBuilder()
+//                .cacheControl(CacheControl.FORCE_CACHE)
+//                .build();
+//            // 没有网络走缓存
+//        }
 
         return chain.proceed(request);
     }
