@@ -59,30 +59,15 @@ public class TopViewActivity extends Activity implements
         mAdapter = new ListAdapter(this);
         mLv.setAdapter(mAdapter);
         mController = new TopController(this);
-        presenter=new TopPresenterImpl(this);
+        presenter=new TopPresenterImpl(this,mController);
         load();
     }
 
     private void load() {
         MovieRequest request = new MovieRequest();
         request.start = (mLv.getCurrentPage() - 1) * 5;//初始值start=0
-        mController.load(request,presenter);
+        presenter.load(request);
     }
-
-//    @Override
-//    public void onSuccess(List<MovieResponse> out) {
-//        mLv.onLoadFinish(out);
-//    }
-//
-//    @Override
-//    public void onError(Throwable error) {
-//        Log.e("TopActivity", error.getMessage());
-//    }
-
-//    @Override
-//    public void onComplete() {
-//        Log.e("TopActivity", "onCompleted");
-//    }
 
     @Override
     public void onRefresh() {

@@ -9,8 +9,8 @@ package com.harry.mvp.presenter;
  * @author Harry
  * @date 2016/10/24.
  */
-public interface ITopPresenter<T> {
-    void load();
+public interface ITopPresenter<Input,T> {
+    void load(Input input);
     void success(T out);
     void error();
 }
