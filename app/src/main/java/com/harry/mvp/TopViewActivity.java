@@ -16,6 +16,7 @@ import com.harry.R;
 import com.harry.adapter.AfRecyclerAdapter;
 import com.harry.adapter.AfViewHolder;
 import com.harry.mvp.model.TopController;
+import com.harry.mvp.presenter.TopPresenterImpl;
 import com.harry.mvp.view.ITopView;
 import com.harry.refresh.SwipyRefreshLayoutDirection;
 import com.harry.rv.rxretrofit.model.MovieResponse;
@@ -45,6 +46,7 @@ public class TopViewActivity extends Activity implements
     TopController mController;
 
     private ListAdapter mAdapter;
+    TopPresenterImpl presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +59,14 @@ public class TopViewActivity extends Activity implements
         mAdapter = new ListAdapter(this);
         mLv.setAdapter(mAdapter);
         mController = new TopController(this);
+        presenter=new TopPresenterImpl(this);
         load();
     }
 
     private void load() {
         MovieRequest request = new MovieRequest();
         request.start = (mLv.getCurrentPage() - 1) * 5;//初始值start=0
-        mController.load(request,this);
+        mController.load(request,presenter);
     }
 
 //    @Override

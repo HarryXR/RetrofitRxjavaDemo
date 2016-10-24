@@ -5,7 +5,7 @@ package com.harry.mvp.model;
 
 import android.content.Context;
 
-import com.harry.mvp.view.ITopView;
+import com.harry.mvp.presenter.ITopPresenter;
 import com.harry.rv.rxretrofit.api.MovieService;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.retrofit.BaseInterceptor;
@@ -51,11 +51,11 @@ public class HttpManager {
 
         Observable<BaseResponse<T>> observable;
         Input input;
-        ITopView view;
+        ITopPresenter presenter;
 
-        protected void load(Input input, final ITopView view) {
+        protected void load(Input input, final ITopPresenter presenter) {
             this.input = input;
-            this.view = view;
+            this.presenter = presenter;
             observable = getObservable();
             observable.map(new HttpResultFunc<T>()).subscribeOn(Schedulers.io()).observeOn(
                 AndroidSchedulers.mainThread()).subscribe(new Subscriber<T>() {
@@ -66,12 +66,12 @@ public class HttpManager {
 
                 @Override
                 public void onError(Throwable e) {
-                    view.onError();
+                    presenter.error();
                 }
 
                 @Override
                 public void onNext(T res) {
-                    view.onSuccess(res);
+                    presenter.success(res);
                 }
             });
         }

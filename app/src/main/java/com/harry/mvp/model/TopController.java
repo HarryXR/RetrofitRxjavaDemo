@@ -5,7 +5,7 @@ package com.harry.mvp.model;
 
 import android.content.Context;
 
-import com.harry.mvp.view.ITopView;
+import com.harry.mvp.presenter.TopPresenterImpl;
 import com.harry.rv.rxretrofit.model.BaseResponse;
 import com.harry.rv.rxretrofit.model.MovieResponse;
 import com.harry.rv.rxretrofit.retrofit.MovieRequest;
@@ -25,9 +25,9 @@ public class TopController extends HttpManager {
         super(context);
     }
 
-    public void load(MovieRequest request, ITopView view) {
+    public void load(MovieRequest request, TopPresenterImpl presenter) {
         LoadTask task = new LoadTask();
-        task.load(request,view);
+        task.load(request,presenter);
     }
 
     private class LoadTask extends BaseTask<MovieRequest,List<MovieResponse>> {
