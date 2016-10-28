@@ -36,6 +36,7 @@
         <activity android:name=".video.MovieRecorderActivity"/>
         <activity android:name=".progress.ProgressActivity"/>
         <activity android:name=".mvp.TopViewActivity"/>
+        <activity android:name=".slide.ViewPagerActivity"/>
     </application>
 
 </manifest>

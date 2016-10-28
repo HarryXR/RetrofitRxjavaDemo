@@ -59,4 +59,8 @@
         <!--<attr name="selectedBgColor" format="reference|color"/>-->
     </declare-styleable>
 
+    <declare-styleable name="BounceViewPager">
+        <attr name="overscroll_translation" format="dimension"/>
+        <attr name="overscroll_animation_duration" format="integer"/>
+    </declare-styleable>
 </resources>

@@ -37,6 +37,7 @@ public class HttpManager {
     Cache cache;
 
     public HttpManager(Context context) {
+        cache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         client.connectTimeout(5, TimeUnit.SECONDS);
         client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);
@@ -44,7 +45,6 @@ public class HttpManager {
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addConverterFactory(
             GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         service = retrofit.create(MovieService.class);
-        cache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
     }
 
     protected abstract class BaseTask<Input, T> {
