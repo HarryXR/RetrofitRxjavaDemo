@@ -37,6 +37,9 @@
         <activity android:name=".progress.ProgressActivity"/>
         <activity android:name=".mvp.TopViewActivity"/>
         <activity android:name=".slide.ViewPagerActivity"/>
+        <activity android:name=".reflect.ReflectActivity"/>
+        <activity android:name=".image.ImageActivity"/>
+        <activity android:name=".anno.AnnotationActivity"/>
     </application>
 
 </manifest>

@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Slide;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,11 +41,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void setWindowAnimation() {
-        Slide slide=new Slide();
-        slide.setDuration(500);
-        slide.setSlideEdge(Gravity.START);
-        getWindow().setReenterTransition(slide);
-        getWindow().setExitTransition(slide);
+//        Slide slide=new Slide();
+//        slide.setDuration(500);
+//        slide.setSlideEdge(Gravity.START);
+//        getWindow().setReenterTransition(slide);
+//        getWindow().setExitTransition(slide);
     }
     
     private void selectItem(int position) {
