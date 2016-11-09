@@ -76,12 +76,12 @@ public class CircleIndicator extends BaseCircle {
         circlePaint.setColor(colors[0]);
         drawCircleContent(canvas, paint, circlePaint, path, rectf, perAnagle, textRadius, 5, 13,"过低");
         circlePaint.setColor(colors[3]);//先画最后一个，然后倒数第二个将最后一个圆角覆盖
-        drawCircleContent(canvas, paint, circlePaint, path, rectf, perAnagle, textRadius, 35, 60,"正常");
+        drawCircleContent(canvas, paint, circlePaint, path, rectf, perAnagle, textRadius, 35, 60,"超级高");
         circlePaint.setStrokeCap(Paint.Cap.BUTT);
         circlePaint.setColor(colors[1]);
-        drawCircleContent(canvas, paint, circlePaint, path, rectf, perAnagle, textRadius, 13, 20,"过高");
+        drawCircleContent(canvas, paint, circlePaint, path, rectf, perAnagle, textRadius, 13, 20,"正常");
         circlePaint.setColor(colors[2]);
-        drawCircleContent(canvas, paint, circlePaint, path, rectf, perAnagle, textRadius, 20, 35,"超级高");
+        drawCircleContent(canvas, paint, circlePaint, path, rectf, perAnagle, textRadius, 20, 35,"过高");
     }
 
     private void drawCircleContent(Canvas canvas, Paint paint, Paint circlePaint, Path path, RectF rectf,

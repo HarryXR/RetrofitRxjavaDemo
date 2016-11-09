@@ -287,6 +287,9 @@ public class LineIndicator extends View {
     }
 
     public void animateIndicator(float progress) {
+//        AnimatorSet as= (AnimatorSet) AnimatorInflater.loadAnimator(getContext(), R.anim.progress_obj);
+//        as.setTarget(this);
+//        as.start();
         Interpolator interpolator = new AnticipateOvershootInterpolator(1.8f);
         ObjectAnimator animation = ObjectAnimator.ofFloat(this, "progress", progress);//get/setProgress
         animation.setDuration(3000);

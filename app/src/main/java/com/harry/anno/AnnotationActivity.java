@@ -37,6 +37,5 @@ public class AnnotationActivity extends Activity {
                tv.setText(field.getAnnotation(AnnotationSingle.class).getName());
            }
        }
-
     }
 }
