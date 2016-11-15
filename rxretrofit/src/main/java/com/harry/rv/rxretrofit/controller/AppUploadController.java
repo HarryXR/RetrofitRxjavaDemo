@@ -31,7 +31,7 @@ public class AppUploadController<L> extends HttpClient<L> {
         @Override
         protected Observable<BaseResponse<T>> getObservable() {
             buildRequest();
-            return super.getObservable();
+            return null;
         }
 
         @Override

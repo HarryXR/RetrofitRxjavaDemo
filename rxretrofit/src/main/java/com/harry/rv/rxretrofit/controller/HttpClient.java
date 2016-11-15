@@ -37,23 +37,23 @@ public class HttpClient<L> {
     Context context;
 
     public HttpClient(Context context) {
-        OkHttpClient.Builder client = new OkHttpClient.Builder();
-        client.connectTimeout(5, TimeUnit.SECONDS);
-        client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);
-        OkHttpClient okHttpClient = client.build();
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addConverterFactory(
+        this.context = context;
+        cache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.connectTimeout(5, TimeUnit.SECONDS);
+        builder.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);
+        OkHttpClient client = builder.build();
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(client).addConverterFactory(
             GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         service = retrofit.create(MovieService.class);
-        cache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
     }
 
     public void setListener(L l) {
         this.listener = l;
     }
 
-    public HttpClient(Context context,L l) {
+    public HttpClient(Context context, L l) {
         this(context);
-        this.context=context;
         setListener(l);
     }
 
@@ -84,9 +84,7 @@ public class HttpClient<L> {
             });
         }
 
-        protected Observable<BaseResponse<T>> getObservable() {
-            return null;
-        }
+        protected abstract Observable<BaseResponse<T>> getObservable();
 
         public abstract void onSuccess(T out);
 

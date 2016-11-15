@@ -39,14 +39,12 @@ public class UploadController extends AppUploadController<UploadController.LoadL
         }
 
         public SaveTask(BaseRequest request, File... file) {
-            super(file);
-            req = request;
+            this(request);
             files = file;
         }
 
         @Override
         protected Observable<BaseResponse<PostResponse>> getObservable() {
-            super.getObservable();
             return service.upload(builder.build());
         }
 
