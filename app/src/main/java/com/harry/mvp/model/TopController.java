@@ -21,12 +21,13 @@ import rx.Observable;
  */
 public class TopController extends HttpManager {
 
+    LoadTask task;
     public TopController(Context context) {
         super(context);
     }
 
     public void load(MovieRequest request, TopPresenterImpl presenter) {
-        LoadTask task = new LoadTask();
+        task = new LoadTask();
         task.load(request,presenter);
     }
 
@@ -36,5 +37,10 @@ public class TopController extends HttpManager {
         public Observable<BaseResponse<List<MovieResponse>>> getObservable() {
             return service.getMovie(input.start);
         }
+    }
+
+    @Override
+    protected void cancel() {
+        task.cancel();
     }
 }

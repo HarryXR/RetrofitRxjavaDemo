@@ -37,18 +37,20 @@ public class HttpManager {
     Cache cache;
 
     public HttpManager(Context context) {
-        cache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
+        cache = new Cache(context.getExternalCacheDir(), 10 * 1024 * 1024);
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         client.connectTimeout(5, TimeUnit.SECONDS);
         client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);
         OkHttpClient okHttpClient = client.build();
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addCallAdapterFactory(
+            RxJavaCallAdapterFactory.create()).build();
         service = retrofit.create(MovieService.class);
     }
 
     protected abstract class BaseTask<Input, T> {
 
         Observable<BaseResponse<T>> observable;
+        Subscriber<T> subscriber;
         Input input;
         ITopPresenter presenter;
 
@@ -56,8 +58,7 @@ public class HttpManager {
             this.input = input;
             this.presenter = presenter;
             observable = getObservable();
-            observable.map(new HttpResultFunc<T>()).subscribeOn(Schedulers.io()).observeOn(
-                AndroidSchedulers.mainThread()).subscribe(new Subscriber<T>() {
+            subscriber = new Subscriber<T>() {
                 @Override
                 public void onCompleted() {
 
@@ -72,11 +73,22 @@ public class HttpManager {
                 public void onNext(T res) {
                     presenter.success(res);
                 }
-            });
+            };
+            observable.map(new HttpResultFunc<T>()).subscribeOn(Schedulers.io()).observeOn(
+                AndroidSchedulers.mainThread()).subscribe(subscriber);
         }
 
         protected Observable<BaseResponse<T>> getObservable() {
             return null;
         }
+
+        protected void cancel(){
+            if(subscriber != null){
+                subscriber.unsubscribe();
+            }
+        }
+
     }
+
+    protected void cancel(){};
 }
