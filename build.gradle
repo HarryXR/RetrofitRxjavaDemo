@@ -17,13 +17,11 @@ buildscript {
 
 allprojects {
     repositories {
+//
+//        maven {
+//            url "https://repo.commonsware.com.s3.amazonaws.com"
+//        }
         jcenter()
-        maven {
-            url "https://repo.commonsware.com.s3.amazonaws.com"
-        }
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}

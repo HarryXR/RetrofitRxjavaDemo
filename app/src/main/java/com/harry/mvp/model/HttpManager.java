@@ -18,7 +18,6 @@ import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -31,7 +30,8 @@ import rx.schedulers.Schedulers;
  * @date 2016/10/24.
  */
 public class HttpManager {
-    public static final String BASE_URL = "https://api.douban.com/v2/movie/";//http://api-test.mainaer.com/v3.0/
+    public static final String BASE_URL = "http://pic6.huitu.com/res/";
+    //http://api-test.mainaer.com/v3.0/+++https://api.douban.com/v2/movie/
     Retrofit retrofit;
     MovieService service;
     Cache cache;
@@ -42,8 +42,7 @@ public class HttpManager {
         client.connectTimeout(5, TimeUnit.SECONDS);
         client.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);
         OkHttpClient okHttpClient = client.build();
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addConverterFactory(
-            GsonConverterFactory.create()).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
         service = retrofit.create(MovieService.class);
     }
 

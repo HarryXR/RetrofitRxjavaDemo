@@ -11,6 +11,7 @@ import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -39,4 +40,7 @@ public interface MovieService {
     @POST("face")
     Observable<BaseResponse<PostResponse>> upload(@Body MultipartBody
                                                       imgs);
+
+    @GET("20130116/84481_20130116142820494200_1.jpg")
+    Observable<ResponseBody> download();
 }

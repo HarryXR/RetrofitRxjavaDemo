@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -40,85 +39,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.facebook.fresco:fresco:0.13.0'
 }
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper paramters
-        pom {
-            project {
-                packaging 'aar'
 
-                //添加项目描述
-                name PRJ_DESC
-                url PRJ_URL
-
-                //设置开源证书信息
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                //添加开发者信息
-                developers {
-                    developer {
-                        id DEV_ID
-                        name DEV_ID
-                        email DEV_EMAIL
-                    }
-                }
-
-                scm {
-                    connection SCM_REPO
-                    developerConnection SCM_REPO
-                    url PRJ_URL
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-//    source = android.sourceSets.main.java.srcDirs
-//    classpath += configurations.compile
-//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-//配置上传Bintray相关信息
-bintray {
-    //读取Bintray帐号和密码。
-    //一般的为了保密和安全性，在项目的local.properties文件中添加两行句话即可：
-    //bintray.user=username
-    //bintray.apikey=apikey
-    user = properties.getProperty("user")
-    key = properties.getProperty("apiKey")
-
-    configurations = ['archives']
-
-    pkg {
-        repo = "maven"//上传的中央仓库名称
-        name = ART_ARTIFACT//上传的项目的名字
-        websiteUrl = PRJ_URL
-        vcsUrl = SCM_REPO
-        licenses = ["Apache-2.0"]
-        publish = true  //是否发布
-    }
-}
 

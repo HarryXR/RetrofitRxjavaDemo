@@ -2,6 +2,7 @@ package com.harry;
 
 import com.harry.anno.AnnotationActivity;
 import com.harry.image.ImageActivity;
+import com.harry.mvp.DownloadActivity;
 import com.harry.mvp.TopViewActivity;
 import com.harry.progress.ProgressActivity;
 import com.harry.reflect.ReflectActivity;
@@ -18,6 +19,6 @@ public class MainActivity extends BaseActivity {
     protected Class[] getActivities() {
         return new Class[]{RxJavaActivity.class, TopActivity.class, UploadActivity.class, VideoActivity.class,
             MovieRecorderActivity.class, ProgressActivity.class, TopViewActivity.class, ViewPagerActivity.class,
-            ReflectActivity.class, ImageActivity.class, AnnotationActivity.class};
+            ReflectActivity.class, ImageActivity.class, AnnotationActivity.class, DownloadActivity.class};
     }
 }

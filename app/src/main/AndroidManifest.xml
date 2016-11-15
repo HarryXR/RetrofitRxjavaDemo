@@ -40,6 +40,7 @@
         <activity android:name=".reflect.ReflectActivity"/>
         <activity android:name=".image.ImageActivity"/>
         <activity android:name=".anno.AnnotationActivity"/>
+        <activity android:name=".mvp.DownloadActivity"/>
     </application>
 
 </manifest>
