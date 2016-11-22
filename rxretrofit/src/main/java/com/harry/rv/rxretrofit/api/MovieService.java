@@ -18,6 +18,8 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
+import retrofit2.http.Streaming;
+import retrofit2.http.Url;
 import rx.Observable;
 
 /**
@@ -43,4 +45,8 @@ public interface MovieService {
 
     @GET("20130116/84481_20130116142820494200_1.jpg")
     Observable<ResponseBody> download();
+
+    @Streaming
+    @GET()
+    Observable<ResponseBody> download(@Url String url);
 }

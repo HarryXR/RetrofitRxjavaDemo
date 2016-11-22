@@ -54,7 +54,7 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
             if (!dir.exists()) {
                 dir.mkdirs();
             }
-            file=new File(dir,"1.jpg");
+            file=new File(dir,"2.jpg");
             fos = new FileOutputStream(file);
             while ((length =out.read(buf)) != -1) {
                 sum += length;
