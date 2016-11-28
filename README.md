@@ -9,6 +9,7 @@
 - JieCaoVideoPlayer视频播放
 - MovieRecorderView小视频录制与播放，默认录入10秒
 - 自定义ProgressBar
+- 沉浸式模式
 
 ###上图gif只展示了get http request
 ##新增图片上传，支持多图上传，详情参考 uploadactivity
