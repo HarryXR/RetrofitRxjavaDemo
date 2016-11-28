@@ -41,6 +41,7 @@
         <activity android:name=".image.ImageActivity"/>
         <activity android:name=".anno.AnnotationActivity"/>
         <activity android:name=".mvp.DownloadActivity"/>
+        <activity android:name=".ImmersiveActivity"/>
     </application>
 
 </manifest>

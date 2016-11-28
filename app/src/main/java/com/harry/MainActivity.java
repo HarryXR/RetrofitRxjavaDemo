@@ -19,6 +19,7 @@ public class MainActivity extends BaseActivity {
     protected Class[] getActivities() {
         return new Class[]{RxJavaActivity.class, TopActivity.class, UploadActivity.class, VideoActivity.class,
             MovieRecorderActivity.class, ProgressActivity.class, TopViewActivity.class, ViewPagerActivity.class,
-            ReflectActivity.class, ImageActivity.class, AnnotationActivity.class, DownloadActivity.class};
+            ReflectActivity.class, ImageActivity.class, AnnotationActivity.class, DownloadActivity.class,
+            ImmersiveActivity.class};
     }
 }
