@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
  * @author Harry
  * @date 2016/10/12.
  */
-public class ProgressActivity extends Activity {
+public class IndicatorActivity extends Activity {
     @BindView(R.id.li)
     LineIndicator lineIndicator;
     @BindView(R.id.ci)
@@ -27,7 +27,7 @@ public class ProgressActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_progress);
+        setContentView(R.layout.activity_indicator);
         ButterKnife.bind(this);
         String leftAlert = "开始";
         String leftContent = "60.0公斤";

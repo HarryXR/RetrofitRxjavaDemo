@@ -34,7 +34,7 @@
 
         <activity android:name=".video.VideoActivity"/>
         <activity android:name=".video.MovieRecorderActivity"/>
-        <activity android:name=".progress.ProgressActivity"/>
+        <activity android:name=".ProgressActivity"/>
         <activity android:name=".mvp.TopViewActivity"/>
         <activity android:name=".slide.ViewPagerActivity"/>
         <activity android:name=".reflect.ReflectActivity"/>
@@ -42,6 +42,8 @@
         <activity android:name=".anno.AnnotationActivity"/>
         <activity android:name=".mvp.DownloadActivity"/>
         <activity android:name=".ImmersiveActivity"/>
+        <activity android:name=".SweepGradientActivity"/>
+        <activity android:name=".progress.IndicatorActivity"/>
     </application>
 
 </manifest>

@@ -4,7 +4,6 @@ import com.harry.anno.AnnotationActivity;
 import com.harry.image.ImageActivity;
 import com.harry.mvp.DownloadActivity;
 import com.harry.mvp.TopViewActivity;
-import com.harry.progress.ProgressActivity;
 import com.harry.reflect.ReflectActivity;
 import com.harry.rxjava.RxJavaActivity;
 import com.harry.rxjava.UploadActivity;
