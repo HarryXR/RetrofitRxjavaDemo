@@ -6,6 +6,7 @@ package com.harry.video;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.Camera;
+import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Environment;
@@ -161,6 +162,7 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
         if (mCamera != null) {
             Camera.Parameters params = mCamera.getParameters();
             params.set("orientation", "portrait");
+            params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
             mCamera.setParameters(params);
         }
     }
@@ -214,14 +216,17 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
         mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);// 视频源
         mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);// 音频源
-        mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);// 视频输出格式
-        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);// 音频格式
-        mMediaRecorder.setVideoSize(mWidth, mHeight);// 设置分辨率：
-        // mMediaRecorder.setVideoFrameRate(16);// 这个我把它去掉了，感觉没什么用
-        mMediaRecorder.setVideoEncodingBitRate(1 * 1024 * 512);// 设置帧频率，然后就清晰了
+//        mMediaRecorder.setVideoSize(mWidth, mHeight);// 设置分辨率：
+//        mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);// 视频输出格式
+//        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);// 音频格式
+
+        CamcorderProfile cProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
+        mMediaRecorder.setProfile(cProfile); //相机参数配置类
+        mMediaRecorder.setVideoEncodingBitRate(5 * 1920 * 1080);// 设置帧频率，然后就清晰了
         mMediaRecorder.setOrientationHint(90);// 输出旋转90度，保持竖屏录制
-        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);// 视频录制格式
+//        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);// 视频录制格式
         // mediaRecorder.setMaxDuration(Constant.MAXVEDIOTIME * 1000);
+        mMediaRecorder.setVideoFrameRate(30);
         mMediaRecorder.setOutputFile(mVecordFile.getAbsolutePath());
         mMediaRecorder.prepare();
         try {
