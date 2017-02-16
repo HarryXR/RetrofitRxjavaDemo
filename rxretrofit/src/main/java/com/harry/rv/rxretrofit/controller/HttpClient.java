@@ -38,7 +38,7 @@ public class HttpClient<L> {
 
     public HttpClient(Context context) {
         this.context = context;
-        cache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
+        cache = new Cache(context.getExternalCacheDir(), 10 * 1024 * 1024);//10M
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(5, TimeUnit.SECONDS);
         builder.addInterceptor(new BaseInterceptor()).addNetworkInterceptor(new NetworkInterceptor()).cache(cache);

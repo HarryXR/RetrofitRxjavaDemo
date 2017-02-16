@@ -34,7 +34,6 @@ public class MovieRecorderActivity extends AppCompatActivity {
     private MediaPlayer player;
     int position;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +41,11 @@ public class MovieRecorderActivity extends AppCompatActivity {
         initViews();
         initEvents();
         init();
-
     }
-    private void init()
-    {
-        player=new MediaPlayer();
-        playView=(SurfaceView) this.findViewById(R.id.play_surfaceV);
+
+    private void init() {
+        player = new MediaPlayer();
+        playView = (SurfaceView) this.findViewById(R.id.play_surfaceV);
 
         //设置SurfaceView自己不管理的缓冲区
         playView.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -59,38 +57,37 @@ public class MovieRecorderActivity extends AppCompatActivity {
 
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                if (position>0) {
+                if (position > 0) {
                     try {
                         //开始播放
                         play();
                         //并直接从指定位置开始播放
                         player.seekTo(position);
-                        position=0;
+                        position = 0;
                     } catch (Exception e) {
                         // TODO: handle exception
                     }
                 }
             }
+
             @Override
-            public void surfaceChanged(SurfaceHolder holder, int format, int width,
-                                       int height) {
+            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
             }
         });
     }
-    private void initViews()
-    {
-        movieRV=(MovieRecorderView)findViewById(R.id.moive_rv);
+
+    private void initViews() {
+        movieRV = (MovieRecorderView) findViewById(R.id.moive_rv);
         //录制
-        startBtn=(Button)findViewById(R.id.start_btn);
-        stopBtn=(Button)findViewById(R.id.stop_btn);
+        startBtn = (Button) findViewById(R.id.start_btn);
+        stopBtn = (Button) findViewById(R.id.stop_btn);
         //播放
-        playBtn=(Button)findViewById(R.id.play_btn);
-        pauseBtn=(Button)findViewById(R.id.pause_btn);
+        playBtn = (Button) findViewById(R.id.play_btn);
+        pauseBtn = (Button) findViewById(R.id.pause_btn);
     }
 
-    private void initEvents()
-    {
+    private void initEvents() {
         //开始录制
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +95,7 @@ public class MovieRecorderActivity extends AppCompatActivity {
                 movieRV.record(new MovieRecorderView.OnRecordFinishListener() {
                     @Override
                     public void onRecordFinish() {
-
+//                        movieRV.stop();
                     }
                 });
             }
@@ -121,40 +118,36 @@ public class MovieRecorderActivity extends AppCompatActivity {
         pauseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(player.isPlaying())
-                {
+                if (player.isPlaying()) {
                     player.pause();
                 }
-                else
-                {
+                else {
                     player.start();
                 }
             }
         });
-
-
     }
+
     @Override
     protected void onPause() {
         //先判断是否正在播放
         if (player.isPlaying()) {
             //如果正在播放我们就先保存这个播放位置
-            position=player.getCurrentPosition()
-            ;
+            position = player.getCurrentPosition();
             player.stop();
         }
         super.onPause();
     }
-    private void play()
-    {
+
+    private void play() {
         try {
-            Log.d("play:","");
+            Log.d("play:", "");
             player.reset();
             player.setAudioStreamType(AudioManager.STREAM_MUSIC);
             //设置需要播放的视频
-            String path=movieRV.getmVecordFile().getAbsolutePath();
+            String path = movieRV.getVecordFile().getAbsolutePath();
             player.setDataSource(path);
-            Log.d("play:",path);
+            Log.d("play:", path);
             //把视频画面输出到SurfaceView
             player.setDisplay(playView.getHolder());
             player.prepare();
