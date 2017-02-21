@@ -6,7 +6,6 @@ package com.harry.video;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.Camera;
-import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.os.Build;
 import android.os.Environment;
@@ -88,7 +87,7 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
         mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.addCallback(new CustomCallBack());
         mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        createRecordDir();
+//        createRecordDir();
     }
 
     /**
@@ -131,13 +130,13 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
      * @author lip
      * @date 2015-3-16
      */
-    private void initCamera() throws IOException {
+    public void initCamera() throws IOException {
         if (mCamera != null) {
             freeCameraResource();
         }
         try {
             if (mCamera == null) {
-                mCamera = Camera.open();
+                mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_BACK);
 //                setCameraParams();
                 mCamera.setDisplayOrientation(90);
                 mCamera.setPreviewDisplay(mSurfaceHolder);
@@ -149,7 +148,7 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
         }
     }
 
-    private void startPreview() {
+    public void startPreview() {
 
         mCamera.startPreview();
         mCamera.unlock();
@@ -181,8 +180,8 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
             mCamera.setPreviewCallback(null);
             mCamera.stopPreview();
             mCamera.lock();
-//            mCamera.release();
-//            mCamera = null;
+            mCamera.release();
+            mCamera = null;
         }
     }
 
@@ -220,18 +219,38 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);// 视频源
         mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);// 音频源
 
-//        mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);// 视频输出格式
+        mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);// 视频输出格式
 //        mMediaRecorder.setVideoSize(640, 480);// 设置分辨率：
-//        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);// 音频格式
+        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);// 音频格式
 
-        CamcorderProfile cProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
-        mMediaRecorder.setProfile(cProfile); //相机参数配置类
+//        CamcorderProfile cProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
+//        mMediaRecorder.setProfile(cProfile); //相机参数配置类
         mMediaRecorder.setVideoEncodingBitRate(5 * 1024 * 1024);// 设置帧频率，然后就清晰了
         mMediaRecorder.setOrientationHint(90);// 输出旋转90度，保持竖屏录制
-//        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);// 视频录制格式
-        // mediaRecorder.setMaxDuration(Constant.MAXVEDIOTIME * 1000);
-        mMediaRecorder.setVideoFrameRate(16);
+        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);// 视频录制格式
+//         mediaRecorder.setMaxDuration(Constant.MAXVEDIOTIME * 1000);
+        mMediaRecorder.setVideoFrameRate(30);
+//        mMediaRecorder.setOutputFile(mVecordFile.getAbsolutePath());
+//        mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+//        mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+
+        // Set output file format
+//        mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+
+        // 这两项需要放在setOutputFormat之后
+//        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+//        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
+    
+//        mMediaRecorder.setVideoSize(640, 480);
+//        mMediaRecorder.setVideoFrameRate(30);
+
+//        mMediaRecorder.setVideoEncodingBitRate(3 * 1024 * 1024);
+//        mMediaRecorder.setOrientationHint(90);
+        //设置记录会话的最大持续时间（毫秒）
+//        mMediaRecorder.setMaxDuration(30 * 1000);
+        mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
         mMediaRecorder.setOutputFile(mVecordFile.getAbsolutePath());
+    
         mMediaRecorder.prepare();
         try {
             mMediaRecorder.start();
@@ -256,8 +275,9 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
      */
     public void record(final OnRecordFinishListener onRecordFinishListener) {
         this.mOnRecordFinishListener = onRecordFinishListener;
+        createRecordDir();
         try {
-            if (!isOpenCamera)// 如果未打开摄像头，则打开
+            if (mCamera== null)// 如果未打开摄像头，则打开
             {
                 initCamera();
             }
