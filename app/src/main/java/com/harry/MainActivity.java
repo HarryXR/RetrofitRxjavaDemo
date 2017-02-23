@@ -1,5 +1,8 @@
 package com.harry;
 
+import android.Manifest;
+import android.os.Bundle;
+
 import com.harry.anno.AnnotationActivity;
 import com.harry.image.ImageActivity;
 import com.harry.mvp.DownloadActivity;
@@ -13,7 +16,16 @@ import com.harry.socket.ClientActivity;
 import com.harry.video.MovieRecorderActivity;
 import com.harry.video.VideoActivity;
 
+import kr.co.namee.permissiongen.PermissionGen;
+
 public class MainActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        PermissionGen.with(this).permissions(Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE).request();
+    }
 
     @Override
     protected Class[] getActivities() {

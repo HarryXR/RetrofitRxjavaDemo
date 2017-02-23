@@ -35,6 +35,7 @@ import butterknife.ButterKnife;
  */
 public class ClientActivity extends Activity {
 
+    private static final int MESSAGE_RECEIVE=0x1001;
     @BindView(R.id.edit_content)
     TextView mEdit;
     @BindView(R.id.btn_send)
@@ -49,7 +50,7 @@ public class ClientActivity extends Activity {
     public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == 0x11) {
+            if (msg.what == MESSAGE_RECEIVE) {
                 //显示接受的服务端信息
                 mTvContent.append(msg.obj + "\n");
             }
@@ -62,9 +63,11 @@ public class ClientActivity extends Activity {
         setContentView(R.layout.activity_client);
         ButterKnife.bind(this);
 
+        //启动服务端
         Intent intent = new Intent(this, ServerService.class);
         startService(intent);
 
+        //发送消息给服务端
         mSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,10 +91,10 @@ public class ClientActivity extends Activity {
                 mClientSocket = socket;
                 mPrintWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),
                     true);
-                myHandler.obtainMessage(0x11, "client:connect server success").sendToTarget();
+                myHandler.obtainMessage(MESSAGE_RECEIVE, "client:connect server success").sendToTarget();
             } catch (IOException e) {
                 e.printStackTrace();
-                myHandler.obtainMessage(0x11, "client:connect server success").sendToTarget();
+                myHandler.obtainMessage(MESSAGE_RECEIVE, "client:connect server fail").sendToTarget();
             }
         }
 
@@ -103,7 +106,7 @@ public class ClientActivity extends Activity {
                 if (msg != null) {
                     String time = formateTime(System.currentTimeMillis());
                     String showMsg = "server " + time + ":" + msg + "\n";
-                    myHandler.obtainMessage(0x11, showMsg).sendToTarget();
+                    myHandler.obtainMessage(MESSAGE_RECEIVE, showMsg).sendToTarget();
                 }
             }
             System.out.print("quit...");
@@ -141,11 +144,13 @@ public class ClientActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        try {
-            mClientSocket.shutdownInput();
-            mClientSocket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(mClientSocket != null) {
+            try {
+                mClientSocket.shutdownInput();
+                mClientSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         super.onDestroy();
     }

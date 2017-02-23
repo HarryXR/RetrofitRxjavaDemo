@@ -33,7 +33,7 @@ public class ServerService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        new Thread(new ServiceThread()).start();
+        new Thread(new TcpServiceThread()).start();
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -44,10 +44,11 @@ public class ServerService extends Service {
         return null;
     }
 
-    public class ServiceThread implements Runnable {
+    public class TcpServiceThread implements Runnable {
 
         @Override
         public void run() {
+
 
             try {
                 ServerSocket ss = new ServerSocket(3000); ////创建一个ServerSocket对象

@@ -227,7 +227,7 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
 //        mMediaRecorder.setProfile(cProfile); //相机参数配置类
         mMediaRecorder.setVideoEncodingBitRate(5 * 1024 * 1024);// 设置帧频率，然后就清晰了
         mMediaRecorder.setOrientationHint(90);// 输出旋转90度，保持竖屏录制
-        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);// 视频录制格式
+//        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);// 视频录制格式
 //         mediaRecorder.setMaxDuration(Constant.MAXVEDIOTIME * 1000);
         mMediaRecorder.setVideoFrameRate(30);
 //        mMediaRecorder.setOutputFile(mVecordFile.getAbsolutePath());
@@ -239,13 +239,8 @@ public class MovieRecorderView extends LinearLayout implements MediaRecorder.OnE
 
         // 这两项需要放在setOutputFormat之后
 //        mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-//        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
-    
-//        mMediaRecorder.setVideoSize(640, 480);
-//        mMediaRecorder.setVideoFrameRate(30);
+        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
 
-//        mMediaRecorder.setVideoEncodingBitRate(3 * 1024 * 1024);
-//        mMediaRecorder.setOrientationHint(90);
         //设置记录会话的最大持续时间（毫秒）
 //        mMediaRecorder.setMaxDuration(30 * 1000);
         mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
