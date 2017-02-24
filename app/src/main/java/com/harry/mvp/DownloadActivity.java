@@ -53,7 +53,7 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
         setContentView(R.layout.activity_download);
         iv = (ImageView) findViewById(R.id.iv_main);
         end = (ImageView) findViewById(R.id.end);
-        start=(Button)findViewById(R.id.start);
+        start = (Button) findViewById(R.id.start);
         mController = new DownloadController(this);
         mPresenter = new DownLoadPresenterImpl(mController, this);
         mPresenter.load(new BaseRequest());
@@ -61,38 +61,9 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
     }
 
     @Override
-    public void onSuccess(InputStream out) {
-        byte[] buf = new byte[4096];
-        FileOutputStream fos = null;
-        int length;
-        File file;
-        try {
-            long sum = 0;
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            file = new File(dir, "2.jpg");
-            fos = new FileOutputStream(file);
-            while ((length = out.read(buf)) != -1) {
-                sum += length;
-                fos.write(buf, 0, length);
-            }
-            fos.flush();
-            FileInputStream fis = new FileInputStream(file);
-            iv.setImageBitmap(BitmapFactory.decodeStream(fis));
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (out != null) {
-                    out.close();
-                }
-                if (fos != null) {
-                    fos.close();
-                }
-            } catch (IOException e) {
-            }
-        }
+    public void onSuccess(final InputStream out) {
+        Bitmap bitmap=BitmapFactory.decodeStream(out);
+        iv.setImageBitmap(bitmap);
     }
 
     @Override
