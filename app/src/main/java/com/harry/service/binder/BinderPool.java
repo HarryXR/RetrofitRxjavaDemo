@@ -53,7 +53,7 @@ public class BinderPool {
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
-            mCountDownLatch.countDown();
+            mCountDownLatch.countDown();//线程数减1，到0时主线程执行
         }
 
         @Override
@@ -72,12 +72,12 @@ public class BinderPool {
     };
 
     private synchronized void connectService() {
-        mCountDownLatch = new CountDownLatch(1);
+        mCountDownLatch = new CountDownLatch(1);//1个等待线程
         Intent intent = new Intent("com.harry.service.binder.BinderPoolService");
-        intent.setPackage("com.harry.rx");
+        intent.setPackage("com.harry.rx");//5.0以后，隐式启动需要添加包名
         mContext.bindService(intent, mBinderPoolConnection, Context.BIND_AUTO_CREATE);
         try {
-            mCountDownLatch.await();
+            mCountDownLatch.await();//等待线程外的线程阻塞
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -46,7 +46,7 @@ public class RxJavaActivity extends Activity {
             .subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
-                System.out.println(s);
+                Log.e(tag, "just: " + s);
             }
         });
     }
@@ -77,6 +77,7 @@ public class RxJavaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxjava);
         ButterKnife.bind(this);
+
     }
 
     Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
@@ -91,17 +92,17 @@ public class RxJavaActivity extends Activity {
     Subscriber<String> subscriber = new Subscriber<String>() {
         @Override
         public void onNext(String s) {
-            Log.d(tag, "subscriber Item: " + s);
+            Log.e(tag, "subscriber Item: " + s);
         }
 
         @Override
         public void onCompleted() {
-            Log.d(tag, "Completed!subscriber");
+            Log.e(tag, "Completed!subscriber");
         }
 
         @Override
         public void onError(Throwable e) {
-            Log.d(tag, "Error!subscriber");
+            Log.e(tag, "Error!subscriber");
         }
     };
 }
