@@ -1,18 +1,17 @@
 package com.harry;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.jakewharton.rxbinding.widget.RxAdapterView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.functions.Action1;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -27,17 +26,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         cls = getActivities();
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItem(position);
-            }
-        });
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, android.R.id.text1,
             getItems());
         lv.setAdapter(adapter);
+        RxAdapterView.itemClicks(lv).subscribe(new Action1<Integer>() {
+            @Override
+            public void call(Integer integer) {
+                selectItem(integer);
+            }
+        });
         setWindowAnimation();
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE},0);
     }
 
     private void setWindowAnimation() {

@@ -35,15 +35,13 @@ public class RxJavaActivity extends Activity {
 
     @OnClick(R.id.just)
     void just() {
-        Observable.just("Hello World")
-            .map(new Func1<String, String>() {
+        Observable.just("Hello World").map(new Func1<String, String>() {
 
             @Override
             public String call(String s) {
                 return "subscriber: " + s;
             }
-            })
-            .subscribe(new Action1<String>() {
+        }).subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
                 Log.e(tag, "just: " + s);
@@ -53,14 +51,17 @@ public class RxJavaActivity extends Activity {
 
     @OnClick(R.id.scheduler)
     void scheduler() {
-        Observable.just(1, 2, 3, 4)
-            .subscribeOn(Schedulers.io())//subcribe 事件发生线程
+        Observable.just(1, 2, 3, 4).map(new Func1<Integer, String>() {
+            @Override
+            public String call(Integer integer) {
+                return "数字 " + integer;
+            }
+        }).subscribeOn(Schedulers.io())//subcribe 事件发生线程
             .observeOn(AndroidSchedulers.mainThread())//observe 事件消费线程，指定主线程
-            .subscribe(
-            new Action1<Integer>() {
+            .subscribe(new Action1<String>() {
                 @Override
-                public void call(Integer integer) {
-                    Log.e(tag, "number=" + integer+"/"+Thread.currentThread());
+                public void call(String integer) {
+                    Log.e(tag, "number=" + integer + "/" + Thread.currentThread());
                 }
             });
     }
@@ -72,12 +73,29 @@ public class RxJavaActivity extends Activity {
         observable.subscribe(subscriber);
     }
 
+    @OnClick(R.id.flatMap)
+    void flatMap() {
+        //Integer 转 Float ;一对多
+        Integer[] ints={1,2,3};
+        Observable.from(ints)
+            .flatMap(new Func1<Integer, Observable<Float>>() {
+                @Override
+                public Observable<Float> call(Integer integer) {//1个int 生成2个float
+                    return Observable.from(new Float[]{Float.valueOf(integer),Float.valueOf(integer*2)});
+                }
+            }).subscribe(new Action1<Float>() {
+            @Override
+            public void call(Float aFloat) {
+                Log.e(tag, "flatMap Item: " + aFloat);//1.0 2.0;2.0 4.0;3.0 6.0
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxjava);
         ButterKnife.bind(this);
-
     }
 
     Observable observable = Observable.create(new Observable.OnSubscribe<String>() {

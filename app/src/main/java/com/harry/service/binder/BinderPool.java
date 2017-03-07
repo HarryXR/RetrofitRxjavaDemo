@@ -47,7 +47,7 @@ public class BinderPool {
     private ServiceConnection mBinderPoolConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            mIBinderPool = (IBinderPool) service;
+            mIBinderPool = IBinderPool.Stub.asInterface(service) ;
             try {
                 mIBinderPool.asBinder().linkToDeath(deathRecipient, 0);
             } catch (RemoteException e) {

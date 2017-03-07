@@ -32,5 +32,10 @@
         android:layout_height="wrap_content"
         android:text="scheduler"
         android:layout_margin="5dp"/>
-
+    <Button
+        android:id="@+id/flatMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="flatMap"
+        android:layout_margin="5dp"/>
 </LinearLayout>

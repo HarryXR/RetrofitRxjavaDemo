@@ -42,7 +42,7 @@ public class BinderActivity extends Activity {
         RxView.clicks(speak).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                mSpeak = Speak.asInterface(mBinderPool.queryBinder(1));//(Speak)mBinderPool.queryBinder(1)
+                mSpeak = Speak.asInterface(mBinderPool.queryBinder(1));//不同进程，(Speak)mBinderPool.queryBinder(1)不能用
                 try {
                     Toast.makeText(BinderActivity.this, mSpeak.speak(), Toast.LENGTH_SHORT).show();
                 } catch (RemoteException e) {

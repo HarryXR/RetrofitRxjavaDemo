@@ -56,6 +56,9 @@
         <activity android:name=".AcessActivity"/>
         <activity android:name=".AesRsaActivity"/>
         <activity android:name=".socket.ClientActivity"/>
+        <activity android:name=".DayNightActivity"
+            android:theme="@style/DayNightTheme"/>
+
         <activity android:name=".service.binder.BinderActivity"/>
 
         <service
@@ -64,7 +67,8 @@
         </service>
         <service
             android:name=".service.binder.BinderPoolService"
-            android:enabled="true">
+            android:enabled="true"
+            android:process=":remote">
             <intent-filter>
                 <action android:name="com.harry.service.binder.BinderPoolService"/>
             </intent-filter>
