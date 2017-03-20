@@ -7,7 +7,9 @@ import java.io.IOException;
 
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
@@ -23,10 +25,11 @@ public class BaseInterceptor implements Interceptor {
         HttpUrl url=original.url().newBuilder()
             .addQueryParameter("count", 5+"")
             .build();
-
+        RequestBody postBody=RequestBody.create(MediaType.parse("multipart/form-data"),"5");
         Request request = original.newBuilder()
             .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
             .addHeader("Connection", "keep-alive")
+            .post(postBody)
             .method(original.method(), original.body())
             .url(url)
             .build();

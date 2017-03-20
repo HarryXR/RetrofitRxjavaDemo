@@ -37,5 +37,6 @@ dependencies {
     compile 'com.google.dagger:dagger:2.9'
     compile 'com.lovedise:permissiongen:0.0.6'
     compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+//    compile 'com.harry:rxretrofit:1.0.0'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.9'
 }

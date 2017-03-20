@@ -28,7 +28,7 @@ import rx.Observable;
  * @author Harry
  */
 public interface MovieService {
-    @POST("in_theaters")
+    @GET("in_theaters")
     Observable<BaseResponse<List<MovieResponse>>> getMovie();
 
     @GET("in_theaters")

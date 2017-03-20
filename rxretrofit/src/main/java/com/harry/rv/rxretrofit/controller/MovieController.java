@@ -34,7 +34,7 @@ public class MovieController extends HttpClient<MovieController.LoadListener> {
 
         @Override
         public Observable<BaseResponse<List<MovieResponse>>> getObservable() {
-            return service.getMovie(input.start);
+            return service.getMovie();
         }
 
         @Override

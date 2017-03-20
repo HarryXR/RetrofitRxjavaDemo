@@ -45,6 +45,7 @@ public class UploadController extends AppUploadController<UploadController.LoadL
 
         @Override
         protected Observable<BaseResponse<PostResponse>> getObservable() {
+            super.getObservable();
             return service.upload(builder.build());
         }
 
