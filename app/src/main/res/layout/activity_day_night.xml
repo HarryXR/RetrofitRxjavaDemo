@@ -16,4 +16,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="夜间模式"/>
+
+    <Button
+        android:id="@+id/btn_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手电筒"/>
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加一个View"/>
 </LinearLayout>

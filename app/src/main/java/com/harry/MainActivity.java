@@ -1,7 +1,10 @@
 package com.harry;
 
 import android.Manifest;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 
 import com.harry.anno.AnnotationActivity;
 import com.harry.image.ImageActivity;
@@ -26,6 +29,13 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         PermissionGen.with(this).permissions(Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA,
             Manifest.permission.WRITE_EXTERNAL_STORAGE).request();
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                startActivity(intent);
+                return;
+            }
+        }
     }
 
     @Override
