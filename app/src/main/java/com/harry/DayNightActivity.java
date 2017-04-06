@@ -3,18 +3,39 @@
  */
 package com.harry;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
+import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCaptureSession;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraDevice;
+import android.hardware.camera2.CameraManager;
+import android.hardware.camera2.CameraMetadata;
+import android.hardware.camera2.CaptureRequest;
+import android.hardware.camera2.params.StreamConfigurationMap;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +46,7 @@ import butterknife.ButterKnife;
  * @author Harry
  * @date 2017/3/7.
  */
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class DayNightActivity extends AppCompatActivity implements View.OnClickListener {
     
     @BindView(R.id.btn_day)
@@ -35,7 +57,7 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
     View mLight;
     @BindView(R.id.btn_add)
     View mAdd;
-    
+    private final static String TAG="DayNightActivity";
     private Camera camera;
     private Camera.Parameters parameters;
     
@@ -52,10 +74,97 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
         mAdd.setOnClickListener(this);
         
         mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        camera = Camera.open();
+        manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        initCamera2();
     }
     
+    private CameraManager manager;
+    private CameraDevice cameraDevice;
+    private CameraCaptureSession captureSession = null;
+    private CaptureRequest request = null;
+    private SurfaceTexture surfaceTexture;
+    private Surface surface;
     private boolean status = false;
+    
+    String cameraId = null;
+    private final CameraCaptureSession.StateCallback stateCallback = new CameraCaptureSession.StateCallback() {
+        
+        public void onConfigured(CameraCaptureSession arg0) {
+            captureSession = arg0;
+            CaptureRequest.Builder builder;
+            try {
+                builder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+                builder.set(CaptureRequest.FLASH_MODE, CameraMetadata.FLASH_MODE_TORCH);
+                builder.addTarget(surface);
+                request = builder.build();
+                captureSession.capture(request, null, null);
+            } catch (CameraAccessException e) {
+                Log.e(TAG, e.getMessage());
+            }
+        };
+        
+        public void onConfigureFailed(CameraCaptureSession arg0) {
+        };
+    };
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void openCamera2Flash() throws CameraAccessException {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        manager.openCamera(cameraId, new CameraDevice.StateCallback() {
+            
+            @Override
+            public void onOpened(CameraDevice camera) {
+                cameraDevice = camera;
+                createCaptureSession();
+            }
+            
+            @Override
+            public void onError(CameraDevice camera, int error) {
+            }
+            
+            @Override
+            public void onDisconnected(CameraDevice camera) {
+            }
+        }, null);
+    }
+    
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    private void createCaptureSession() {
+        this.surfaceTexture = new SurfaceTexture(0, false);
+        this.surfaceTexture.setDefaultBufferSize(1280, 720);
+        this.surface = new Surface(this.surfaceTexture);
+        ArrayList localArrayList = new ArrayList(1);
+        localArrayList.add(this.surface);
+        try {
+            this.cameraDevice.createCaptureSession(localArrayList, stateCallback, null);
+        } catch (CameraAccessException e) {
+            Log.e(TAG, e.getMessage());
+        }
+    }
+    
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void initCamera2() {
+        try {
+            for (String cameraId : this.manager.getCameraIdList()) {
+                CameraCharacteristics characteristics = this.manager.getCameraCharacteristics(cameraId);
+                // 过滤掉前置摄像头
+                Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
+                if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
+                    continue;
+                }
+                StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+                if (map == null) {
+                    continue;
+                }
+                this.cameraId = cameraId;
+                // 判断设备是否支持闪光灯
+//                this.isSupportFlashCamera2 = characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+            }
+        } catch (CameraAccessException e) {
+            Log.e(TAG, e.getMessage());
+        }
+    }
     
     @Override
     public void onClick(View v) {
@@ -70,13 +179,19 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
         else if (v == mLight) {
             if (!status) {
                 status = true;
-                new Thread(new TurnOnLight()).start();
+                try {
+                    openCamera2Flash();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             else {
-                status = false;
-                parameters.setFlashMode("off");
-                camera.setParameters(parameters);
+                status=false;
+                if(cameraDevice != null){
+                    cameraDevice.close();
+                }
             }
+         
         }
         else if (v == mAdd) {
             if(floatBtn != null){
@@ -99,15 +214,6 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
         layoutParams.y = 300;
 //        floatBtn.setOnTouchListener(this);
         mWindowManager.addView(floatBtn, layoutParams);
-    }
-    
-    private class TurnOnLight implements Runnable {
-        @Override
-        public void run() {
-            parameters = camera.getParameters();
-            parameters.setFlashMode("torch");
-            camera.setParameters(parameters);
-        }
     }
     
     @Override

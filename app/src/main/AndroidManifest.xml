@@ -4,6 +4,13 @@
 
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.handware.camera"/>
+    <uses-permission android:name="android.handware.autofocus"/>
 
     <uses-permission android:name="android.permission.REORDER_TASKS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -11,7 +18,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
@@ -58,7 +65,8 @@
         <activity android:name=".AcessActivity"/>
         <activity android:name=".AesRsaActivity"/>
         <activity android:name=".socket.ClientActivity"/>
-        <activity android:name=".DayNightActivity"
+        <activity
+            android:name=".DayNightActivity"
             android:theme="@style/DayNightTheme"/>
 
         <activity android:name=".service.binder.BinderActivity"/>
