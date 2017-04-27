@@ -65,6 +65,13 @@
         <activity android:name=".AcessActivity"/>
         <activity android:name=".AesRsaActivity"/>
         <activity android:name=".socket.ClientActivity"/>
+        <activity android:name=".dynamic.ProxyActivty">
+            <intent-filter>
+                <action android:name="com.harry.VIEW"/>
+                <category
+                    android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".DayNightActivity"
             android:theme="@style/DayNightTheme"/>

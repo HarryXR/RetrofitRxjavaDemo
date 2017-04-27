@@ -49,6 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void selectItem(int position) {
         Class cl = cls[position];
         Intent i = new Intent(BaseActivity.this, cl);
+        //noinspection unchecked
         startActivity(i, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
     }
 

@@ -20,9 +20,7 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
@@ -30,9 +28,10 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Surface;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.btn_light)
     View mLight;
     @BindView(R.id.btn_add)
-    View mAdd;
+    TextView mAdd;
     private final static String TAG="DayNightActivity";
     private Camera camera;
     private Camera.Parameters parameters;
@@ -72,10 +71,16 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
         mNight.setOnClickListener(this);
         mLight.setOnClickListener(this);
         mAdd.setOnClickListener(this);
-        
+        mAdd.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+        Log.e(TAG, mAdd.getLayout().getLineEnd(0)+"");
+            }
+        });
         mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         initCamera2();
+        Log.e(TAG,getClassLoader().toString());
     }
     
     private CameraManager manager;
@@ -169,10 +174,12 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v == mDay) {
+            //noinspection WrongConstant
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             recreate();
         }
         else if (v == mNight) {
+            //noinspection WrongConstant 不检验错误常数
             getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             recreate();
         }
@@ -194,32 +201,39 @@ public class DayNightActivity extends AppCompatActivity implements View.OnClickL
          
         }
         else if (v == mAdd) {
-            if(floatBtn != null){
+            if(flaot != null){
                 return;
             }
             addView();
+        }else if(v == phone){
+            if(phone != null){
+                phone.setVisibility(View.GONE);
+            }
+            Toast.makeText(this,"打电话",Toast.LENGTH_SHORT).show();
         }
     }
-    Button floatBtn;
+    View phone;
+    View flaot;
     private void addView() {
-        floatBtn = new Button(this);
-        floatBtn.setText("float button");
+        flaot=View.inflate(this,R.layout.float_layout,null);
+        phone=flaot.findViewById(R.id.phone);
+        phone.setOnClickListener(this);
         LayoutParams layoutParams = new WindowManager.LayoutParams(LayoutParams.WRAP_CONTENT,
             LayoutParams.WRAP_CONTENT, 0, 0, PixelFormat.TRANSPARENT);//0,0 分别是type和flags参数，在后面分别配置了
         layoutParams.flags = LayoutParams.FLAG_NOT_TOUCH_MODAL
             | LayoutParams.FLAG_NOT_FOCUSABLE | LayoutParams.FLAG_SHOW_WHEN_LOCKED;
-        layoutParams.type = LayoutParams.TYPE_SYSTEM_ALERT;
-        layoutParams.gravity = Gravity.LEFT | Gravity.TOP;
-        layoutParams.x = 100;
-        layoutParams.y = 300;
+        layoutParams.type = LayoutParams.TYPE_PHONE;
+        layoutParams.gravity = Gravity.RIGHT | Gravity.BOTTOM;
+//        layoutParams.x = 100;
+//        layoutParams.y = 300;
 //        floatBtn.setOnTouchListener(this);
-        mWindowManager.addView(floatBtn, layoutParams);
+        mWindowManager.addView(flaot, layoutParams);
     }
     
     @Override
     protected void onDestroy() {
-        if(floatBtn != null){
-            mWindowManager.removeViewImmediate(floatBtn);
+        if(flaot != null){
+            mWindowManager.removeViewImmediate(flaot);
 //            mWindowManager.removeView(floatBtn);//do later
         }
         super.onDestroy();

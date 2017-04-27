@@ -11,9 +11,6 @@ import com.harry.R;
 
 import java.lang.reflect.Field;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
  * 类/接口描述
  *
@@ -21,9 +18,15 @@ import butterknife.ButterKnife;
  * @date 2016/11/2.
  */
 public class AnnotationActivity extends Activity {
-    @BindView(R.id.tv)
+    @ViewInject(R.id.tv) //BindView
     TextView tv;
 
+    @ViewClick(R.id.tv) //OnClick
+    public void doClick(){
+        String s="Injected view is clicked";
+        tv.setText(s);
+    }
+    
     @AnnotationSingle(getName = "annotation")
     String name;
 
@@ -31,11 +34,13 @@ public class AnnotationActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_annotation);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
+        ViewBind.bind(this);
        for(Field field:this.getClass().getDeclaredFields()) {
            if (field.getType() == String.class && field.getAnnotation(AnnotationSingle.class) != null) {
                tv.setText(field.getAnnotation(AnnotationSingle.class).getName());
            }
        }
     }
+    
 }

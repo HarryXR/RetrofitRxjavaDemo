@@ -4,12 +4,14 @@
 package com.harry.service.binder;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.harry.R;
+import com.harry.dynamic.ProxyActivty;
 import com.jakewharton.rxbinding.view.RxView;
 
 import butterknife.BindView;
@@ -28,6 +30,8 @@ public class BinderActivity extends Activity {
     Button speak;
     @BindView(R.id.btn_cal)
     Button cal;
+    @BindView(R.id.btn_load)
+    Button load;
 
     private BinderPool mBinderPool;
     private ISpeak mSpeak;
@@ -59,6 +63,16 @@ public class BinderActivity extends Activity {
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+        
+        RxView.clicks(load).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                Intent intent = new Intent(BinderActivity.this, ProxyActivty.class);
+                intent.putExtra(ProxyActivty.EXTRA_DEX_PATH, "/mnt/sdcard/360/app-debug.apk");
+                intent.putExtra(ProxyActivty.EXTRA_CLASS, "com.cooltechworks.scratchview.demo.MainActivity");
+                startActivity(intent);
             }
         });
     }
