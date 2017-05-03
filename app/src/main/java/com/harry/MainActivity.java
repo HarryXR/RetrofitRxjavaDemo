@@ -44,6 +44,6 @@ public class MainActivity extends BaseActivity {
             MovieRecorderActivity.class, ProgressActivity.class, TopViewActivity.class, ViewPagerActivity.class,
             ReflectActivity.class, ImageActivity.class, AnnotationActivity.class, DownloadActivity.class,
             ImmersiveActivity.class, AcessActivity.class, AesRsaActivity.class, ClientActivity.class, BinderActivity
-            .class,DayNightActivity.class};
+            .class,DayNightActivity.class,WebViewActivity.class};
     }
 }

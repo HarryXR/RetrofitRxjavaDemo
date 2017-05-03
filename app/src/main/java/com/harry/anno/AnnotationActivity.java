@@ -11,6 +11,8 @@ import com.harry.R;
 
 import java.lang.reflect.Field;
 
+import butterknife.ButterKnife;
+
 /**
  * 类/接口描述
  *
@@ -34,7 +36,7 @@ public class AnnotationActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_annotation);
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
         ViewBind.bind(this);
        for(Field field:this.getClass().getDeclaredFields()) {
            if (field.getType() == String.class && field.getAnnotation(AnnotationSingle.class) != null) {

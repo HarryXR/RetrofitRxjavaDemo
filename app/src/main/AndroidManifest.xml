@@ -75,6 +75,7 @@
         <activity
             android:name=".DayNightActivity"
             android:theme="@style/DayNightTheme"/>
+        <activity android:name=".WebViewActivity"/>
 
         <activity android:name=".service.binder.BinderActivity"/>
 
