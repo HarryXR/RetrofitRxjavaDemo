@@ -5,9 +5,8 @@
     <meta charset="utf-8">
     <title>Carson_Ho</title>
 
-    // JS代码
     <script>
-// Android需要调用的方法
+
    function callJS(){
       alert("Android调用了JS的callJS方法");
    }
@@ -27,16 +26,20 @@
 
 
     </script>
-
+<style>
+    p#text{
+    color:#ff0000;
+    }
+</style>
 </head>
 <body>
 
 <p>
-    <button type="button" id="button1" onclick="callAndroid()">点击按钮则调用callAndroid函数</button>
+    <button type="button" id="button1" onclick="callAndroid()">调用callAndroid</button>
 </p>
 <p>
     <button type="button" id="button2" onclick="callAndroid2()">调用callAndroid2</button>
 </p>
-<p id="text"></p>
+<p id="text" class="text"></p>
 </body>
 </html>

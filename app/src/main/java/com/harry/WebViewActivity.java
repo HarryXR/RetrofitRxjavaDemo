@@ -13,6 +13,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.harry.web.AndroidToJs;
 
@@ -29,12 +30,14 @@ import butterknife.ButterKnife;
  * @date 2017/5/3.
  */
 
-public class WebViewActivity extends Activity {
+public class WebViewActivity extends Activity implements View.OnClickListener{
     
     @BindView(R.id.webview)
     WebView mWv;
     @BindView(R.id.btn_js)
     Button mBtnJs;
+    @BindView(R.id.btn_js_param)
+    Button mBtnWithParam;
     
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,27 +50,13 @@ public class WebViewActivity extends Activity {
         webSettings.setJavaScriptEnabled(true);
         // 设置允许JS弹窗
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-    
-        mWv.addJavascriptInterface(new AndroidToJs(), "test");//AndroidtoJS类对象映射到js的test对象
+        
+        mWv.addJavascriptInterface(new AndroidToJs(this), "test");//AndroidtoJS类对象映射到js的test对象
         // 先载入JS代码
         mWv.loadUrl("file:///android_asset/js.html");
         
-        mBtnJs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 调用javascript的callJS()方法
-//                mWv.loadUrl("javascript:callJS()");
-                //有返回值的高效方法
-//                mWv.evaluateJavascript("javascript:callJS()", new ValueCallback<String>() {
-//                    @Override
-//                    public void onReceiveValue(String value) {
-//                        //此处为 js 返回的结果
-//                    }
-//                });
-                String result="这是android传递的参数";
-                mWv.loadUrl("javascript:returnResult('" + result + "')");
-            }
-        });
+        mBtnJs.setOnClickListener(this);
+        mBtnWithParam.setOnClickListener(this);
         
         // 由于设置了弹窗检验调用结果,所以需要支持js对话框
         // webview只是载体，内容的渲染需要使用webviewChromClient类去实现
@@ -90,41 +79,65 @@ public class WebViewActivity extends Activity {
                 return true;
             }
         });
-    
-    
+        
         // 复写WebViewClient类的shouldOverrideUrlLoading方法
         mWv.setWebViewClient(new WebViewClient() {
-                                      @Override
-                                      public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            
-                                          // 步骤2：根据协议的参数，判断是否是所需要的url
-                                          // 一般根据scheme（协议格式） & authority（协议名）判断（前两个参数）
-                                          //假定传入进来的 url = "js://webview?arg1=111&arg2=222"（同时也是约定好的需要拦截的）
-            
-                                          Uri uri = Uri.parse(url);
-                                          // 如果url的协议 = 预先约定的 js 协议
-                                          // 就解析往下解析参数
-                                          if ( uri.getScheme().equals("js")) {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 
-                                              // 如果 authority  = 预先约定协议里的 webview，即代表都符合约定的协议
-                                              // 所以拦截url,下面JS开始调用Android需要的方法
-                                              if (uri.getAuthority().equals("webview")) {
-                    
-                                                  //  步骤3：
-                                                  // 执行JS所需要调用的逻辑
-                                                  System.out.println("js调用了Android的方法");
-                                                  // 可以在协议上带有参数并传递到Android上
-                                                  HashMap<String, String> params = new HashMap<>();
-                                                  Set<String> collection = uri.getQueryParameterNames();
-                    
-                                              }
+                // 步骤2：根据协议的参数，判断是否是所需要的url
+                // 一般根据scheme（协议格式） & authority（协议名）判断（前两个参数）
+                //假定传入进来的 url = "js://webview?arg1=111&arg2=222"（同时也是约定好的需要拦截的）
                 
-                                              return true;
-                                          }
-                                          return super.shouldOverrideUrlLoading(view, url);
-                                      }
-                                  }
-        );
+                Uri uri = Uri.parse(url);
+                // 如果url的协议 = 预先约定的 js 协议
+                // 就解析往下解析参数
+                if (uri.getScheme().equals("js")) {
+                    
+                    // 如果 authority  = 预先约定协议里的 webview，即代表都符合约定的协议
+                    // 所以拦截url,下面JS开始调用Android需要的方法
+                    if (uri.getAuthority().equals("webview")) {
+                        
+                        //  步骤3：
+                        // 执行JS所需要调用的逻辑
+                        Toast.makeText(WebViewActivity.this,"js调用了Android的方法",Toast.LENGTH_SHORT).show();
+                        // 可以在协议上带有参数并传递到Android上
+                        HashMap<String, String> params = new HashMap<>();
+                        Set<String> collection = uri.getQueryParameterNames();
+                    }
+                    
+                    return true;
+                }
+                return super.shouldOverrideUrlLoading(view, url);
+            }
+        });
     }
     
+    @Override
+    public void onClick(View v) {
+        if(v == mBtnJs){
+            startJs();
+        }else if(v == mBtnWithParam){
+            startJsWithParam();
+        }
+        
+    }
+    
+    private void startJsWithParam() {
+        String result = "这是android传递的参数";
+        mWv.loadUrl("javascript:returnResult('" + result + "')");
+    }
+    
+    private void startJs() {
+        // 调用javascript的callJS()方法
+        mWv.loadUrl("javascript:callJS()");
+        //有返回值的高效方法
+//                mWv.evaluateJavascript("javascript:callJS()", new ValueCallback<String>() {
+//                    @Override
+//                    public void onReceiveValue(String value) {
+//                        //此处为 js 返回的结果
+//                    }
+//                });
+       
+    }
 }

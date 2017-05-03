@@ -16,5 +16,14 @@
         android:id="@+id/btn_js"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="android 调用js"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="android调用js"/>
+
+    <Button
+        android:id="@+id/btn_js_param"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="android调用js带参数"/>
 </RelativeLayout>
