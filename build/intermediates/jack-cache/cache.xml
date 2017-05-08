@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.2.0\a09926806199499a20b2f5168779499abfa33342\converter-gson-2.2.0.jar"
+        revision="25.0.2"
+        sha1="a09926806199499a20b2f5168779499abfa33342">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\converter-gson-2.2.0-d27bf73d3e46fe9effefc86a4a1317938c5cc09f.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-arm64\0.6.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="d6a0998f61ebb488e6a3198fa20c851a137cd9b3">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-9faa2f5597ba0dba6afa5021f890339434ba19b9.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-9a397836ce9c8d1ec0e76eba031283ad6c696992.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.lovedise\permissiongen\0.0.6\jars\classes.jar"
+        revision="25.0.2"
+        sha1="634ccf52c8b58a9eafd4a574b38d165e8648a574">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-a633798a400ae28f06ebdb514b1ceb356f52a9eb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.9\75a739e59d7ede2f7f425f369955bdd1c2ac122b\dagger-2.9.jar"
+        revision="25.0.2"
+        sha1="75a739e59d7ede2f7f425f369955bdd1c2ac122b">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\dagger-2.9-1309a0bd41be2d8b747c09658fff8e2f9b8563b8.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.13.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="4985047e64ea8daf00e923aac6386de67fbd5676">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-9e9b5253aedad33325a0db52264d69f389710637.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.3.0\e1707f3752463c5d240f427240a54762d7b60474\butterknife-annotations-8.3.0.jar"
+        revision="25.0.2"
+        sha1="e1707f3752463c5d240f427240a54762d7b60474">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\butterknife-annotations-8.3.0-3294c9a8373b56ec12cf8bf2080aaf441340279c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\bolts-tasks-1.4.0-d5f49200ddf272920e7c0531cd7d30237cf17280.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.2.0\d80514b6f44f0c4c6234e2d67fea783a25e77275\adapter-rxjava-2.2.0.jar"
+        revision="25.0.2"
+        sha1="d80514b6f44f0c4c6234e2d67fea783a25e77275">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\adapter-rxjava-2.2.0-7e11f940ccfa1b07255ed5d806a8291fb36d9e62.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        revision="25.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\gson-2.7-d640b0adae71b3885db99cb6fdca9a3a26ab3489.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-java\0.6.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="a13789ec9e884e49740bb970550fabcb340466c1">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-19c0c82461fc2ee2aeadfc2beb150feff15519ba.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-armv7a\0.6.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="883eb9c3bde63636505e42fc6cad790f4739b0d3">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-b77c2d6b6053bff0ce0a7efa91d2e7171f9928b5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.2.0\42bfaf64c94f3848ebf5cf1c2ea4ec9d1b3ac6c8\rxjava-1.2.0.jar"
+        revision="25.0.2"
+        sha1="42bfaf64c94f3848ebf5cf1c2ea4ec9d1b3ac6c8">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\rxjava-1.2.0-c3560e8891beebd752c6af0fb1198df974113649.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar"
+        revision="25.0.2"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\okhttp-3.6.0-9428bae5ce029397689b6f5ad368dca960968748.jar" />
+    </item>
+    <item
+        jar="E:\Tools\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\support-annotations-25.2.0-c054a2b06c40b7f9119ba72724c7a68e1a8b30e3.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-x86_64\0.6.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="0562efaffe940ea2da9383096ddea9281585c052">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-866e642083e8a3709fbac548649aa2a521cd8a71.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-ed2cdef4fdbb91420590cf22b03157155b4b2d15.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.13.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="db1ed61a6eaa9d50ff214daf79ed485877aaa58a">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-ccf287a6331ecd50d96257f5ef7420de0eb94b6f.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.13.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="e818c866cdd1e9b94d54a3ffbd7420dca384746a">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-8894bcd4ab4f63ff34512798c31eab4dad09142d.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\RetrofitRxjavaDemo\aesrsa\unspecified\jars\classes.jar"
+        revision="25.0.2"
+        sha1="1037e5e5d3f500fa60a3c929a119bd830e447d56">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-0d156ba2cefc8ae03ac18a52d676bcd7bc815c01.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.13.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="0aa38f91d7e6c9d5983d2148741de45b6cc5949b">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-70648453d5203a561150dafbb29d4630664bb6ac.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-f4a4c8d277ca9138439784a9d71b7519da7c47a3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
+        revision="25.0.2"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\okio-1.11.0-64dbc67ff91fe15254fe9fdf64a190e59772f64b.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.13.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="9bab39d73226491b969ef7ffebeae2e6e525e98f">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-727aa1e4d48a295014a0cbf1b6ae87918af1d5a5.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-a9d82b1d75dafcd9b20334e9542c9804deb43c31.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.harry\rxretrofit\1.0.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="d3809686d149a49711eabd2952cd5b87ab0c01cd">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-d6024b2718b55d55931284d548d969ddb93ca4ed.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-0dd02f21da575c5eb471ebc340b4b647d02f4ce5.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-22f0af113b10603aa140a7fcb792821500a9106c.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.1.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-6a56b80c6c7a021cda1c4c4120d869046454687c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        revision="25.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\javax.inject-1-ab469d211c70c437be2f038af747ddcc9996de0a.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-x86\0.6.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="5ee6f3750abc2947b67bfbdf2061e26b0def1735">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-006b5271e273a69db48cb8ae195ff9163c5fbb25.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-d9314e09fcab40090986bcee7e1d7c4a6bb7d60b.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-20056941791eaaa88bf8b362019dca3f4f425dab.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-de5ebe0d3968672a12444ecb82a5c092873c419b.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.2.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-5069c31040714a85ceb90a3445db9f2b0418e2c9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.alibaba\fastjson\1.1.56.android\4eef0ac3ef5e18db7af5d44ca0228ca5c29dd2f6\fastjson-1.1.56.android.jar"
+        revision="25.0.2"
+        sha1="4eef0ac3ef5e18db7af5d44ca0228ca5c29dd2f6">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\fastjson-1.1.56.android-704c6586ec6ef04c4c35965db118b64329e37b26.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\fm.jiecao\jiecaovideoplayer\4.7.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="5dbd47f0cd9164de21ba3fe3c7736dc681e736b6">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-52d56f1017fe9aa3c09b9a417323f7090b991be4.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.jakewharton.rxbinding\rxbinding\0.4.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="ffc09f4e5bdebe068e5101f587dadc42b60fbfe4">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-24eb0b2bef396a053dba9e398f33624c4de27de9.jar" />
+    </item>
+    <item
+        jar="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\exploded-aar\com.jakewharton\butterknife\8.3.0\jars\classes.jar"
+        revision="25.0.2"
+        sha1="9fc69c9eb208228b7feef1d3108ef28a16cc3abf">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c14d26ec7ba18a1236e3d77318b58f112a60f560.jar" />
+    </item>
+    <item
+        jar="C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.2.0\41e67dba73c3347e4503761642c39d0e06ca1f2\retrofit-2.2.0.jar"
+        revision="25.0.2"
+        sha1="041e67dba73c3347e4503761642c39d0e06ca1f2">
+        <dex dex="E:\gitdemo\RetrofitRxjavaDemo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\retrofit-2.2.0-7f732a35d795f17306298ed620f105ab68f18aa2.jar" />
+    </item>
+
+</items>
