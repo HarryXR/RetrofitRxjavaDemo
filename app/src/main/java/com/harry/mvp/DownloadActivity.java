@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -70,7 +69,6 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
     };
     @Override
     public void onSuccess(final byte[] out) {
-        Log.e("OnSuccess",out.toString());
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -142,9 +140,6 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
             @Override
             public void onAnimationStart(Animation animation) {
                 logo.setVisibility(View.VISIBLE);
-                int[] startLocation = new int[2];
-                logo.getLocationInWindow(startLocation);
-                Log.e("start",startLocation[0]+"//"+startLocation[1]);
             }
 
             @Override
@@ -155,9 +150,6 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
             @Override
             public void onAnimationEnd(Animation animation) {
                 logo.setVisibility(View.GONE);
-                int[] endLocation = new int[2];
-                logo.getLocationInWindow(endLocation);
-                Log.e("end",endLocation[0]+"//"+endLocation[1]);
             }
         });
     }
