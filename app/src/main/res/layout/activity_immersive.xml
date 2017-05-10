@@ -6,8 +6,9 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic1"/>
+        android:scaleType="centerInside"
+        android:background="@mipmap/ic1"/>
 </LinearLayout>

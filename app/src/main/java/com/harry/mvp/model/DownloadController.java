@@ -8,8 +8,6 @@ import android.content.Context;
 import com.harry.mvp.presenter.DownLoadPresenterImpl;
 import com.harry.mvp.presenter.ITopPresenter;
 
-import java.io.InputStream;
-
 import okhttp3.ResponseBody;
 import rx.Observable;
 import rx.Subscriber;
@@ -41,7 +39,7 @@ public class DownloadController extends HttpManager {
             this.presenter = presenter;
             observable = getObservable();
             observable.map(new DownloadFunc()).subscribeOn(Schedulers.io()).observeOn(
-                AndroidSchedulers.mainThread()).subscribe(new Subscriber<InputStream>() {
+                AndroidSchedulers.mainThread()).subscribe(new Subscriber<byte[]>() {
                 @Override
                 public void onCompleted() {
 
@@ -53,7 +51,7 @@ public class DownloadController extends HttpManager {
                 }
 
                 @Override
-                public void onNext(InputStream res) {
+                public void onNext(byte[] res) {
                     presenter.success(res);
                 }
             });

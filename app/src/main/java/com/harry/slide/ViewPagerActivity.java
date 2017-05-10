@@ -29,6 +29,7 @@ public class ViewPagerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewpager);
+        ButterKnife.setDebug(true);
         ButterKnife.bind(this);
         PagerViewAdapter adapter=new PagerViewAdapter();
         mVp.setAdapter(adapter);

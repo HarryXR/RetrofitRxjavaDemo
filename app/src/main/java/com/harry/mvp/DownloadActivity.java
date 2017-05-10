@@ -8,6 +8,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -26,10 +29,6 @@ import com.harry.mvp.view.IDownLoadView;
 import com.harry.rv.rxretrofit.model.BaseRequest;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * 类/接口描述
@@ -37,7 +36,7 @@ import java.io.InputStream;
  * @author Harry
  * @date 2016/11/15.
  */
-public class DownloadActivity extends Activity implements IDownLoadView<InputStream>, View.OnClickListener {
+public class DownloadActivity extends Activity implements IDownLoadView<byte[]>, View.OnClickListener {
     ImageView iv;
     ImageView end;
     Button start;
@@ -60,10 +59,32 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
         start.setOnClickListener(this);
     }
 
+    Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if(msg.arg1 == 0){
+                iv.setImageBitmap((Bitmap) msg.obj);
+            }
+        }
+    };
     @Override
-    public void onSuccess(final InputStream out) {
-        Bitmap bitmap=BitmapFactory.decodeStream(out);
-        iv.setImageBitmap(bitmap);
+    public void onSuccess(final byte[] out) {
+        Log.e("OnSuccess",out.toString());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                BitmapFactory.Options options=new BitmapFactory.Options();
+                options.inJustDecodeBounds = false;
+                options.inSampleSize = 10;   //width，hight设为原来的十分一
+                Bitmap bitmap=BitmapFactory.decodeByteArray(out,0,out.length);
+                Message msg=Message.obtain();
+                msg.arg1=0;
+                msg.obj=bitmap;
+                handler.sendMessage(msg);
+            }
+        }).start();
+       
     }
 
     @Override
@@ -107,7 +128,7 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
         TranslateAnimation translateAnimationY = new TranslateAnimation(0, 0, 0, endY);
         translateAnimationY.setInterpolator(new AccelerateInterpolator());
         translateAnimationY.setRepeatCount(0);// 动画重复执行的次数
-        translateAnimationX.setFillAfter(true);
+        translateAnimationY.setFillAfter(true);
 
         AnimationSet set = new AnimationSet(false);
         set.setFillAfter(false);
@@ -121,6 +142,9 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
             @Override
             public void onAnimationStart(Animation animation) {
                 logo.setVisibility(View.VISIBLE);
+                int[] startLocation = new int[2];
+                logo.getLocationInWindow(startLocation);
+                Log.e("start",startLocation[0]+"//"+startLocation[1]);
             }
 
             @Override
@@ -131,6 +155,9 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
             @Override
             public void onAnimationEnd(Animation animation) {
                 logo.setVisibility(View.GONE);
+                int[] endLocation = new int[2];
+                logo.getLocationInWindow(endLocation);
+                Log.e("end",endLocation[0]+"//"+endLocation[1]);
             }
         });
     }
@@ -141,7 +168,7 @@ public class DownloadActivity extends Activity implements IDownLoadView<InputStr
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.MATCH_PARENT);
         animLayout.setLayoutParams(lp);
-        animLayout.setId(Integer.MAX_VALUE);
+        animLayout.setId(R.id.content);
         animLayout.setBackgroundResource(android.R.color.transparent);
         rootView.addView(animLayout);
         return animLayout;

@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
  */
 public class AnnotationActivity extends Activity {
     @ViewInject(R.id.tv) //BindView
-        TextView tv;
+    TextView tv;
     
     @ViewClick(R.id.tv) //OnClick
     public void doClick() {
@@ -57,7 +57,7 @@ public class AnnotationActivity extends Activity {
         map.put(null, "null00");
         Iterator iterator = map.entrySet().iterator();
         while (iterator.hasNext()) {
-            Map.Entry entry = (Map.Entry) iterator.next();
+            HashMap.Entry entry = (Map.Entry) iterator.next();
             Object key = entry.getKey();
             Object value = entry.getValue();
 //            Log.e(getClass().getSimpleName(),"key="+key+"//value="+value);

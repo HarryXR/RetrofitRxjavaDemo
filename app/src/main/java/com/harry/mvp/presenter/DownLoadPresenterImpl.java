@@ -7,17 +7,15 @@ import com.harry.mvp.model.DownloadController;
 import com.harry.mvp.view.IDownLoadView;
 import com.harry.rv.rxretrofit.model.BaseRequest;
 
-import java.io.InputStream;
-
 /**
  * 类/接口描述
  *
  * @author Harry
  * @date 2016/11/15.
  */
-public class DownLoadPresenterImpl implements ITopPresenter<BaseRequest, InputStream> {
+public class DownLoadPresenterImpl implements ITopPresenter<BaseRequest, byte[]> {
     DownloadController mController;
-    IDownLoadView<InputStream> mView;
+    IDownLoadView<byte[]> mView;
 
     public DownLoadPresenterImpl(DownloadController controller, IDownLoadView view) {
         this.mController = controller;
@@ -30,7 +28,7 @@ public class DownLoadPresenterImpl implements ITopPresenter<BaseRequest, InputSt
     }
 
     @Override
-    public void success(InputStream out) {
+    public void success(byte[] out) {
 
         mView.onSuccess(out);
     }

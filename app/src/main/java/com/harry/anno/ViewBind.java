@@ -14,6 +14,10 @@ import java.lang.reflect.Method;
  */
 
 public class ViewBind {
+    /**
+     * 这种反射的方式太low了，APT（Annotation Processing Tool）才是王道
+     * @param activity
+     */
     public static void bind(final Activity activity)
     {
         /**
