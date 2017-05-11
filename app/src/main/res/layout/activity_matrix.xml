@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.harry.view.ColorView
+        android:id="@+id/myColorView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:scaleType="centerInside"
+        />
+
+    <com.harry.view.RefreshRecyclerView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:recyclerView="@layout/base_rv">
+
+    </com.harry.view.RefreshRecyclerView>
+
+</LinearLayout>

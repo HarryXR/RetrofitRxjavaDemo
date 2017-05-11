@@ -30,7 +30,7 @@ import rx.schedulers.Schedulers;
  * @date 2016/10/24.
  */
 public class HttpManager {
-    public static final String BASE_URL = "http://pic6.huitu.com/res/";
+    public static final String BASE_URL = "https://api.douban.com/v2/movie/";
     //http://api-test.mainaer.com/v3.0/+++https://api.douban.com/v2/movie/
     Retrofit retrofit;
     MovieService service;

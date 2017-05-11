@@ -78,6 +78,7 @@
         <activity android:name=".WebViewActivity"/>
 
         <activity android:name=".service.binder.BinderActivity"/>
+        <activity android:name=".mvp.MatrixActivity"/>
 
         <service
             android:name=".socket.ServerService"

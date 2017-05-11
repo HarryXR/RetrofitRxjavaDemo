@@ -39,6 +39,7 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
     ImageView iv;
     ImageView end;
     Button start;
+    Button matrix;
     DownLoadPresenterImpl mPresenter;
     DownloadController mController;
     File dir = Environment.getExternalStorageDirectory();
@@ -52,10 +53,12 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
         iv = (ImageView) findViewById(R.id.iv_main);
         end = (ImageView) findViewById(R.id.end);
         start = (Button) findViewById(R.id.start);
+        matrix=(Button)findViewById(R.id.matrix);
         mController = new DownloadController(this);
         mPresenter = new DownLoadPresenterImpl(mController, this);
         mPresenter.load(new BaseRequest());
         start.setOnClickListener(this);
+        matrix.setOnClickListener(this);
     }
 
     Handler handler=new Handler(){
@@ -94,6 +97,8 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
     public void onClick(View v) {
         if (v == start) {
             startAnim();
+        }else if(v == matrix){
+            MatrixActivity.go(this);
         }
     }
 
