@@ -6,8 +6,11 @@ package com.harry.slide;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.harry.R;
 import com.harry.util.AppUtils;
@@ -22,9 +25,13 @@ import butterknife.ButterKnife;
  * @author Harry
  * @date 2016/10/28.
  */
-public class ViewPagerActivity extends Activity {
+public class ViewPagerActivity extends Activity implements View.OnClickListener{
     @BindView(R.id.vp)
-    BounceViewPager mVp;
+    SuperViewPager mVp;
+    @BindView(R.id.et)
+    EditText et;
+    @BindView(R.id.start)
+    Button start;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +40,21 @@ public class ViewPagerActivity extends Activity {
         ButterKnife.bind(this);
         PagerViewAdapter adapter=new PagerViewAdapter();
         mVp.setAdapter(adapter);
+        mVp.setOffscreenPageLimit(5);
+        start.setOnClickListener(this);
     }
-
+    
+    @Override
+    public void onClick(View v) {
+        String num=et.getText().toString();
+        mVp.setCurrentItem(Integer.parseInt(num));
+    }
+    
     private class PagerViewAdapter extends PagerAdapter{
 
         @Override
         public int getCount() {
-            return 4;
+            return 1000;
         }
 
         @Override
@@ -53,8 +68,9 @@ public class ViewPagerActivity extends Activity {
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(AppUtils.dp2px(ViewPagerActivity.this,47),
                 AppUtils.dp2px(ViewPagerActivity.this,23));
             view.setLayoutParams(params);
-            view.setText("犯罪"+position);
+            view.setText("第"+position+"题");
             container.addView(view);
+            Log.e("position",position+"");
             return view;
         }
 
