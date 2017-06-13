@@ -29,7 +29,6 @@ public class ViewPageHelper {
         return scroller;
     }
     
-    
     public void setCurrentItem(int item, boolean somoth){
         int current=viewPager.getCurrentItem();
         //如果页面相隔大于1,就设置页面切换的动画的时间为0

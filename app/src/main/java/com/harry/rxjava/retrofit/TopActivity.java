@@ -16,7 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.harry.R;
 import com.harry.adapter.AfRecyclerAdapter;
 import com.harry.adapter.AfViewHolder;
-import com.harry.refresh.SwipyRefreshLayoutDirection;
+import com.harry.refresh.SwipeRefreshLayoutDirection;
 import com.harry.rv.rxretrofit.controller.MovieController;
 import com.harry.rv.rxretrofit.model.MovieResponse;
 import com.harry.rv.rxretrofit.retrofit.MovieRequest;
@@ -52,7 +52,7 @@ public class TopActivity extends Activity implements MovieController.LoadListene
         setContentView(R.layout.activity_top);
         ButterKnife.bind(this);
         mLv.setOnRefreshListener(this);
-        mLv.setRefreshDirection(SwipyRefreshLayoutDirection.BOTH);
+        mLv.setRefreshDirection(SwipeRefreshLayoutDirection.BOTH);
         mLv.setPageSize(5);
         mAdapter = new ListAdapter(this);
         mLv.setAdapter(mAdapter);

@@ -4,17 +4,22 @@
 package com.harry.slide;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.harry.R;
-import com.harry.util.AppUtils;
-import com.harry.view.RoundButton;
+import com.harry.dagger.AModel;
+import com.harry.dagger.DaggerModelComponent;
+import com.harry.dagger.ModelComponent;
+import com.harry.slide.transformer.MTransformer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +37,10 @@ public class ViewPagerActivity extends Activity implements View.OnClickListener{
     EditText et;
     @BindView(R.id.start)
     Button start;
+    @BindView(R.id.iv)
+    ImageView iv;
+    ModelComponent modelComponent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +50,18 @@ public class ViewPagerActivity extends Activity implements View.OnClickListener{
         PagerViewAdapter adapter=new PagerViewAdapter();
         mVp.setAdapter(adapter);
         mVp.setOffscreenPageLimit(5);
+        mVp.setPageTransformer(true,new MTransformer());
         start.setOnClickListener(this);
+
+        //Dagger2 implementation
+        modelComponent= DaggerModelComponent.builder().build();
+        modelComponent.inject(new AModel());
+        
+        iv.setImageResource(R.drawable.frame_list);
+//        AnimationDrawable animationDrawable=(AnimationDrawable) iv.getDrawable();
+//        animationDrawable.start();
     }
-    
+
     @Override
     public void onClick(View v) {
         String num=et.getText().toString();
@@ -64,13 +82,13 @@ public class ViewPagerActivity extends Activity implements View.OnClickListener{
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            RoundButton view=(RoundButton) View.inflate(ViewPagerActivity.this,R.layout.layout_tag,null);
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(AppUtils.dp2px(ViewPagerActivity.this,47),
-                AppUtils.dp2px(ViewPagerActivity.this,23));
-            view.setLayoutParams(params);
-            view.setText("第"+position+"题");
+            View view= View.inflate(ViewPagerActivity.this,R.layout.list_item_common,null);
+            SimpleDraweeView iv=(SimpleDraweeView) view.findViewById(R.id.iv);
+            iv.setImageURI(Uri.parse("http://img-test.mainaer.com/uploads/product/2017-04-01/58df095ac8725.jpg"));
+            TextView tv=(TextView) view.findViewById(R.id.tv);
+            tv.setText("第"+position+"题");
+            
             container.addView(view);
-            Log.e("position",position+"");
             return view;
         }
 
@@ -79,4 +97,5 @@ public class ViewPagerActivity extends Activity implements View.OnClickListener{
             container.removeView((View)object);
         }
     }
+    
 }

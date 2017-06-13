@@ -17,7 +17,7 @@ import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class CircleProgress extends View {
+public class CircleProgress2 extends View {
     private static final int CIRCLE_START_ANGLE = -90; // 指示圆环开始角度
     private static final int CIRCLE_STROKE_WIDTH = 16; // 指示圆环的宽度
     private final int CIRCLE_STROKE_COLOR = Color.parseColor("#FFFFB182");
@@ -25,15 +25,15 @@ public class CircleProgress extends View {
 
     private int mSize = 0;
 
-    public CircleProgress(Context context) {
+    public CircleProgress2(Context context) {
         this(context, null);
     }
 
-    public CircleProgress(Context context, AttributeSet attrs) {
+    public CircleProgress2(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleProgress(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CircleProgress2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
     }

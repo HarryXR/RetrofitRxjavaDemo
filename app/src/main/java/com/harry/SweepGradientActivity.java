@@ -11,14 +11,14 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.harry.view.CircleProgress;
+import com.harry.view.CircleProgress2;
 
 /**
  * 渐变进度条
  */
 public class SweepGradientActivity extends BaseActivity {
     private SeekBar sbProgress;
-    private CircleProgress cpProgress;
+    private CircleProgress2 cpProgress;
     private TextView tvValue;
 
     @Override
@@ -28,7 +28,7 @@ public class SweepGradientActivity extends BaseActivity {
 
         sbProgress = (SeekBar) findViewById(R.id.sbProgress);
         tvValue = (TextView) findViewById(R.id.tvValue);
-        cpProgress = (CircleProgress) findViewById(R.id.cpProgress);
+        cpProgress = (CircleProgress2) findViewById(R.id.cpProgress);
         sbProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {

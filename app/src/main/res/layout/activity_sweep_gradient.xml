@@ -23,7 +23,7 @@
         android:max="100"
         android:progress="0" />
 
-    <com.harry.view.CircleProgress
+    <com.harry.view.CircleProgress2
         android:id="@+id/cpProgress"
         android:layout_width="128dp"
         android:layout_height="128dp"

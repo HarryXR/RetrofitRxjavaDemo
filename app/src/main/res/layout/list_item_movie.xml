@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="12dp">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
 
-<com.facebook.drawee.view.SimpleDraweeView
-    android:id="@+id/iv"
-    android:layout_width="148dp"
-    android:layout_height="100dp"
-    fresco:viewAspectRatio="1.48"/>
+    <data>
+        <variable
+            name="movie"
+            type="com.harry.rv.rxretrofit.model.MovieResponse"/>
+        <!--<import name="movie" type="com.harry.rv.rxretrofit.model.MovieResponse.Avatars"/>-->
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv"
+        android:layout_width="148dp"
+        android:layout_height="100dp"
+        fresco:viewAspectRatio="1.48"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="@{movie.title}"
             android:textSize="18sp"/>
+
         <com.harry.view.FlowLayout
             android:id="@+id/fl"
             android:layout_width="wrap_content"
@@ -33,4 +43,5 @@
             android:numColumns="3">
         </com.harry.view.FlowLayout>
     </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
+</layout>

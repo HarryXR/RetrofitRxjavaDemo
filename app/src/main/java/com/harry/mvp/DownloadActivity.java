@@ -28,6 +28,9 @@ import com.harry.mvp.view.IDownLoadView;
 import com.harry.rv.rxretrofit.model.BaseRequest;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * 类/接口描述
@@ -42,7 +45,7 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
     Button matrix;
     DownLoadPresenterImpl mPresenter;
     DownloadController mController;
-    File dir = Environment.getExternalStorageDirectory();
+    String dir = Environment.getExternalStorageDirectory().getAbsolutePath();
 
     public static int[] location_download = new int[2];
 
@@ -77,8 +80,9 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
             public void run() {
                 BitmapFactory.Options options=new BitmapFactory.Options();
                 options.inJustDecodeBounds = false;
-                options.inSampleSize = 10;   //width，hight设为原来的十分一
+                options.inSampleSize = 10;   //width，height设为原来的十分一
                 Bitmap bitmap=BitmapFactory.decodeByteArray(out,0,out.length);
+                saveBitmap(bitmap);
                 Message msg=Message.obtain();
                 msg.arg1=0;
                 msg.obj=bitmap;
@@ -87,7 +91,23 @@ public class DownloadActivity extends Activity implements IDownLoadView<byte[]>,
         }).start();
        
     }
-
+    public void saveBitmap(Bitmap bm) {
+        File f = new File(dir, "2.png");
+        if (f.exists()) {
+            f.delete();
+        }
+        try {
+            FileOutputStream out = new FileOutputStream(f);
+            bm.compress(Bitmap.CompressFormat.PNG, 90, out);
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+    }
     @Override
     public void onError() {
 

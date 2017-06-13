@@ -30,7 +30,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppBaseTheme"
         tools:replace="android:name">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -62,7 +63,7 @@
         <activity android:name=".ImmersiveActivity"/>
         <activity android:name=".SweepGradientActivity"/>
         <activity android:name=".progress.IndicatorActivity"/>
-        <activity android:name=".AcessActivity"/>
+        <activity android:name=".AccessActivity"/>
         <activity android:name=".AesRsaActivity"/>
         <activity android:name=".socket.ClientActivity"/>
         <activity android:name=".dynamic.ProxyActivty">

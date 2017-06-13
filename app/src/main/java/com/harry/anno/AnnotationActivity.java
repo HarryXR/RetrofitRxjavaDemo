@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 20015 MaiNaEr All rights reserved
- */
 package com.harry.anno;
 
 import android.app.Activity;

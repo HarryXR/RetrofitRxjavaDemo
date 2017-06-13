@@ -3,7 +3,7 @@ package com.harry.refresh;
 /**
  * Created by oliviergoutay on 1/23/15.
  */
-public enum SwipyRefreshLayoutDirection {
+public enum SwipeRefreshLayoutDirection {
 
     TOP(0),
     BOTTOM(1),
@@ -12,12 +12,12 @@ public enum SwipyRefreshLayoutDirection {
 
     private int mValue;
 
-    SwipyRefreshLayoutDirection(int value) {
+    SwipeRefreshLayoutDirection(int value) {
         this.mValue = value;
     }
 
-    public static SwipyRefreshLayoutDirection getFromInt(int value) {
-        for (SwipyRefreshLayoutDirection direction : SwipyRefreshLayoutDirection.values()) {
+    public static SwipeRefreshLayoutDirection getFromInt(int value) {
+        for (SwipeRefreshLayoutDirection direction : SwipeRefreshLayoutDirection.values()) {
             if (direction.mValue == value) {
                 return direction;
             }
