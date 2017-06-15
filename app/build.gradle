@@ -1,10 +1,11 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'//annotationProcessor
+apply plugin: 'kotlin-android'
+//apply plugin: 'android-apt'//annotationProcessor
 //apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.harry.rx"
         minSdkVersion 19
@@ -14,6 +15,9 @@ android {
 //        jackOptions {
 //            enabled true
 //        }
+        dataBinding{
+            enabled true
+        }
     }
 //    android {compileOptions.encoding = "utf8"}
     buildTypes {
@@ -36,16 +40,22 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-//    compile project(":rxretrofit")
+    compile project(":rxretrofit")
     compile project(":aesrsa")
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.jakewharton:butterknife:8.5.1'
-    apt 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'fm.jiecao:jiecaovideoplayer:4.7.0'
     compile 'com.google.dagger:dagger:2.9'
     compile 'com.lovedise:permissiongen:0.0.6'
     compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
-    compile 'com.harry:rxretrofit:1.0.0'
+//    compile 'com.harry:rxretrofit:1.0.0'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.9'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile 'me.tatarka:bindingcollectionadapter:0.16'
+    compile 'me.tatarka:bindingcollectionadapter-recyclerview:0.16'
+}
+repositories {
+    mavenCentral()
 }

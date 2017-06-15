@@ -103,7 +103,7 @@ public class SwipyRefreshLayout extends ViewGroup {
     private static final int DEFAULT_CIRCLE_TARGET = 64;
 
     private View mTarget; // the target of the gesture
-    private SwipyRefreshLayoutDirection mDirection;
+    private SwipeRefreshLayoutDirection mDirection;
     private boolean mBothDirection;
     private OnRefreshListener mListener;
     private boolean mRefreshing = false;
@@ -297,13 +297,13 @@ public class SwipyRefreshLayout extends ViewGroup {
         a.recycle();
 
         final TypedArray a2 = context.obtainStyledAttributes(attrs, R.styleable.SwipyRefreshLayout);
-        SwipyRefreshLayoutDirection direction
-                = SwipyRefreshLayoutDirection.getFromInt(a2.getInt(R.styleable.SwipyRefreshLayout_direction, 0));
-        if (direction != SwipyRefreshLayoutDirection.BOTH) {
+        SwipeRefreshLayoutDirection direction
+                = SwipeRefreshLayoutDirection.getFromInt(a2.getInt(R.styleable.SwipyRefreshLayout_direction, 0));
+        if (direction != SwipeRefreshLayoutDirection.BOTH) {
             mDirection = direction;
             mBothDirection = false;
         } else {
-            mDirection = SwipyRefreshLayoutDirection.TOP;
+            mDirection = SwipeRefreshLayoutDirection.TOP;
             mBothDirection = true;
         }
         a2.recycle();
@@ -694,7 +694,7 @@ public class SwipyRefreshLayout extends ViewGroup {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (mDirection == SwipyRefreshLayoutDirection.NONE){
+        if (mDirection == SwipeRefreshLayoutDirection.NONE){
             return false;
         }
         ensureTarget();
@@ -743,12 +743,12 @@ public class SwipyRefreshLayout extends ViewGroup {
                 }
                 if (mBothDirection) {
                     if (y > mInitialDownY) {
-                        setRawDirection(SwipyRefreshLayoutDirection.TOP);
+                        setRawDirection(SwipeRefreshLayoutDirection.TOP);
                     } else if (y < mInitialDownY) {
-                        setRawDirection(SwipyRefreshLayoutDirection.BOTTOM);
+                        setRawDirection(SwipeRefreshLayoutDirection.BOTTOM);
                     }
-                    if ((mDirection == SwipyRefreshLayoutDirection.BOTTOM && canChildScrollDown())
-                            || (mDirection == SwipyRefreshLayoutDirection.TOP && canChildScrollUp())) {
+                    if ((mDirection == SwipeRefreshLayoutDirection.BOTTOM && canChildScrollDown())
+                            || (mDirection == SwipeRefreshLayoutDirection.TOP && canChildScrollUp())) {
                         mInitialDownY = y;
                         return false;
                     }
@@ -877,7 +877,7 @@ public class SwipyRefreshLayout extends ViewGroup {
 
                         // int targetY = mOriginalOffsetTop + (int) ((slingshotDist * dragPercent) + extraMove);
                         int targetY;
-                        if (mDirection == SwipyRefreshLayoutDirection.TOP) {
+                        if (mDirection == SwipeRefreshLayoutDirection.TOP) {
                             targetY = mOriginalOffsetTop + (int) ((slingshotDist * dragPercent) + extraMove);
                         } else {
                             targetY = mOriginalOffsetTop - (int) ((slingshotDist * dragPercent) + extraMove);
@@ -1114,15 +1114,15 @@ public class SwipyRefreshLayout extends ViewGroup {
      * triggers a refresh should implement this interface.
      */
     public interface OnRefreshListener {
-        public void onRefresh(SwipyRefreshLayoutDirection direction);
+        public void onRefresh(SwipeRefreshLayoutDirection direction);
     }
 
-    public SwipyRefreshLayoutDirection getDirection() {
-        return mBothDirection ? SwipyRefreshLayoutDirection.BOTH : mDirection;
+    public SwipeRefreshLayoutDirection getDirection() {
+        return mBothDirection ? SwipeRefreshLayoutDirection.BOTH : mDirection;
     }
 
-    public void setDirection(SwipyRefreshLayoutDirection direction) {
-        if (direction == SwipyRefreshLayoutDirection.BOTH) {
+    public void setDirection(SwipeRefreshLayoutDirection direction) {
+        if (direction == SwipeRefreshLayoutDirection.BOTH) {
             mBothDirection = true;
         } else {
             mBothDirection = false;
@@ -1141,7 +1141,7 @@ public class SwipyRefreshLayout extends ViewGroup {
     }
 
     // only TOP or Bottom
-    private void setRawDirection(SwipyRefreshLayoutDirection direction) {
+    private void setRawDirection(SwipeRefreshLayoutDirection direction) {
         if (mDirection == direction) {
             return;
         }

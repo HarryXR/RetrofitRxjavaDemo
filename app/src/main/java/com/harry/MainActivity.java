@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
         return new Class[]{RxJavaActivity.class, TopActivity.class, UploadActivity.class, VideoActivity.class,
             MovieRecorderActivity.class, ProgressActivity.class, TopViewActivity.class, ViewPagerActivity.class,
             ReflectActivity.class, ImageActivity.class, AnnotationActivity.class, DownloadActivity.class,
-            ImmersiveActivity.class, AcessActivity.class, AesRsaActivity.class, ClientActivity.class, BinderActivity
+            ImmersiveActivity.class, AccessActivity.class, AesRsaActivity.class, ClientActivity.class, BinderActivity
             .class,DayNightActivity.class,WebViewActivity.class};
     }
 }

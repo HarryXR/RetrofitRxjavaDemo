@@ -25,7 +25,7 @@ import com.harry.recycle.ItemOffsetDecoration;
 import com.harry.recycle.ListItemDecoration;
 import com.harry.recycle.RefreshEmptyView;
 import com.harry.refresh.SwipyRefreshLayout;
-import com.harry.refresh.SwipyRefreshLayoutDirection;
+import com.harry.refresh.SwipeRefreshLayoutDirection;
 
 import java.util.List;
 
@@ -116,7 +116,7 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
     /**
      * 默认刷新方向
      */
-    private SwipyRefreshLayoutDirection mCurrentDirection = SwipyRefreshLayoutDirection.TOP;
+    private SwipeRefreshLayoutDirection mCurrentDirection = SwipeRefreshLayoutDirection.TOP;
     /**
      * 分页第一页索引
      */
@@ -160,7 +160,7 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
             // 设置emptyview
             mEmptyView = new RefreshEmptyView(getContext());
             // 数据为空时只有下拉加载
-            mEmptyView.setDirection(SwipyRefreshLayoutDirection.TOP);
+            mEmptyView.setDirection(SwipeRefreshLayoutDirection.TOP);
             mEmptyLayout = mEmptyView.getParentView();
             // mEmptyLayout = new LinearLayout(getContext());
             // 添加view
@@ -240,9 +240,9 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
     /**
      * 设置刷新方向
      *
-     * @param direction {@link SwipyRefreshLayoutDirection}
+     * @param direction {@link com.harry.refresh.SwipeRefreshLayoutDirection}
      */
-    public void setRefreshDirection(SwipyRefreshLayoutDirection direction) {
+    public void setRefreshDirection(SwipeRefreshLayoutDirection direction) {
         mSwipyRefreshLayout.setDirection(direction);
     }
 
@@ -286,12 +286,12 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
      */
     private SwipyRefreshLayout.OnRefreshListener emptyViewRefreshListener = new SwipyRefreshLayout.OnRefreshListener() {
         @Override
-        public void onRefresh(SwipyRefreshLayoutDirection direction) {
+        public void onRefresh(SwipeRefreshLayoutDirection direction) {
             // empty view 刷新触发mAfRecyclerView的刷新事件
             if (mOnRefreshListener != null) {
                 emptyViewIsLoading(true);
                 // 触发RecyclerView的下拉刷新方法
-                RefreshRecyclerView.this.onRefresh(SwipyRefreshLayoutDirection.TOP);
+                RefreshRecyclerView.this.onRefresh(SwipeRefreshLayoutDirection.TOP);
             }
         }
     };
@@ -301,7 +301,7 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
         if (v == mTipView && mOnRefreshListener != null) {
             // 处理empty view 显示的是mTipView时的点击事件
             mEmptyView.setRefreshing(true);
-            emptyViewRefreshListener.onRefresh(SwipyRefreshLayoutDirection.TOP);
+            emptyViewRefreshListener.onRefresh(SwipeRefreshLayoutDirection.TOP);
         }
     }
 
@@ -540,7 +540,7 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
                         if (mAutoLoadEnable && !isRefreshing) {
                             log("auto load more");
                             mSwipyRefreshLayout.setRefreshing(true);
-                            RefreshRecyclerView.this.onRefresh(SwipyRefreshLayoutDirection.BOTTOM);
+                            RefreshRecyclerView.this.onRefresh(SwipeRefreshLayoutDirection.BOTTOM);
                         }
                     }
                 }
@@ -615,7 +615,7 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
     public void onLoadFinish(List<T> list) {
         if (mAdapter != null) {
             // 当direction == top 或 null时默认是刷新操作
-            if (SwipyRefreshLayoutDirection.TOP == mCurrentDirection) {
+            if (SwipeRefreshLayoutDirection.TOP == mCurrentDirection) {
                 mAdapter.getDataList().clear();
             }
             else {//if (SwipyRefreshLayoutDirection.BOTTOM == direction)
@@ -669,7 +669,7 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
      * 执行刷新操作
      */
     public void refresh() {
-        onRefresh(SwipyRefreshLayoutDirection.TOP);
+        onRefresh(SwipeRefreshLayoutDirection.TOP);
     }
 
     /**
@@ -693,18 +693,18 @@ public class RefreshRecyclerView<T> extends LinearLayout implements View.OnClick
     }
 
     @Override
-    public void onRefresh(SwipyRefreshLayoutDirection direction) {
+    public void onRefresh(SwipeRefreshLayoutDirection direction) {
         if (mOnRefreshListener != null) {
             log("onRefresh current direction = " + direction);
             // 下拉刷新执行的操作
-            if (direction == SwipyRefreshLayoutDirection.TOP) {
-                mCurrentDirection = SwipyRefreshLayoutDirection.TOP;
+            if (direction == SwipeRefreshLayoutDirection.TOP) {
+                mCurrentDirection = SwipeRefreshLayoutDirection.TOP;
                 mCurrentPage = PAGE_FIRST;
                 mOnRefreshListener.onRefresh();
             }
             else {
                 //加载更多执行
-                mCurrentDirection = SwipyRefreshLayoutDirection.BOTTOM;
+                mCurrentDirection = SwipeRefreshLayoutDirection.BOTTOM;
                 // 计算当前加载页数
                 calcCurrentPage();
                 mOnRefreshListener.onLoadMore();

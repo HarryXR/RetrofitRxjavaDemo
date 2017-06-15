@@ -9,7 +9,7 @@
     <com.harry.slide.SuperViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="300dp">
 
     </com.harry.slide.SuperViewPager>
 
@@ -21,7 +21,8 @@
             android:id="@+id/et"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:hint="跳到*页"/>
 
         <Button
             android:id="@+id/start"
@@ -29,4 +30,8 @@
             android:layout_height="wrap_content"
             android:text="开始"/>
     </LinearLayout>
+
+    <com.harry.view.PasswordView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
