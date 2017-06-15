@@ -1,3 +1,4 @@
+
 package com.harry.slide.transformer;
 
 import android.annotation.SuppressLint;
@@ -54,5 +55,4 @@ public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
             w.setAlpha(0);
         }
     }
-  
 }

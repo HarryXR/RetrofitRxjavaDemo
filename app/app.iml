@@ -23,9 +23,24 @@
     </facet>
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="2" platform="JVM 1.6" useProjectSettings="false">
+<<<<<<< HEAD
         <compilerSettings />
         <compilerArguments>
           <option name="jvmTarget" value="1.6" />
+=======
+        <compilerSettings>
+          <option name="additionalArguments" value="-no-jdk" />
+        </compilerSettings>
+        <compilerArguments>
+          <option name="destination" value="E:\Android-Pro\gitdemo\RetrofitRxjavaDemo\app\build\tmp\kotlin-classes\releaseUnitTest" />
+          <option name="classpath" value="E:\Android-Pro\gitdemo\RetrofitRxjavaDemo\aesrsa\build\intermediates\bundles\default\classes.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.alibaba\fastjson\1.1.56.android\4eef0ac3ef5e18db7af5d44ca0228ca5c29dd2f6\fastjson-1.1.56.android.jar;C:\Users\Harry\.android\build-cache\b47e0c3910bf5c6343e61d5d384b5eef89a24819\output\jars\classes.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.5.1\bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc\butterknife-annotations-8.5.1.jar;C:\Users\Harry\.android\build-cache\49cfa7f376dd72d261a5a672a86909f965c5be65\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\e36fdeb1d2097ec5738e19718523b27edfb6c197\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\3205b336400476a59db8cb4cb1fdbae085e1b1f8\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\6a1bee76a91b99c9c0d8ee4b3f339305a9870668\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\acbf9928ca7bda8cebd423994c25ebdb4e2a2ff1\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\c3adb6286c9313727a376dff04176e022cdd272f\output\jars\classes.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.9\75a739e59d7ede2f7f425f369955bdd1c2ac122b\dagger-2.9.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar;C:\Users\Harry\.android\build-cache\de9aeb06dd1abc60847037cd948116561dc0f0db\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\168596865959c53dda098335ccd00c778a4b1f83\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\19441118e3ba2087031b9448fb959bd22cba4d8d\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\4bd745c774fae386b15bcc124d0b3348e207be0b\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\07246b34f4a9553884282337477ca07a761d8a41\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\f824b9c2ea8fc44f06e1ea6c4a448ebb842a2654\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\31102b6ced7c3beedcbe63bc5b6d66405127865f\output\jars\classes.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.2.0\a09926806199499a20b2f5168779499abfa33342\converter-gson-2.2.0.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.2.0\d80514b6f44f0c4c6234e2d67fea783a25e77275\adapter-rxjava-2.2.0.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.2.0\41e67dba73c3347e4503761642c39d0e06ca1f2\retrofit-2.2.0.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.2.0\42bfaf64c94f3848ebf5cf1c2ea4ec9d1b3ac6c8\rxjava-1.2.0.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar;C:\Users\Harry\.android\build-cache\595b1c0e33344cbb7845911a5f762a0733091351\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\2884493adc0a693b51ac8b59407054fafffed744\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\0b2be5621ddcfbba98d71b2c7375ddecb38ea793\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\796fc912ff941b22dae9398b81bc61f0eab8894b\output\jars\classes.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar;C:\Users\Harry\.android\build-cache\2b83680dec111c22824c5e2535cb2771debe5220\output\jars\classes.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jre7\1.1.2-4\e6a7403299b8f3126e3a1576c02e3f07ae5af6fa\kotlin-stdlib-jre7-1.1.2-4.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.1.2-4\3f5f1498bdbb9611cb1413f794b3a3a5a6edef34\kotlin-stdlib-1.1.2-4.jar;C:\Users\Harry\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar;C:\Users\Harry\.android\build-cache\c1bae3f16ff23383da6546e2537ffc801e5fd3d6\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\0e5433514680acbe740d54effd4ea66fb6437604\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\b92399cb042a1ac35509ccd954ea8f531ae1163e\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\9b7d8fb9c7ad93a45fe8272b9e6744b123fe7dba\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\792afd2bc93081ac1b2712c7925d8b684cc0f5c7\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\9c53eab38de38c61c86d2576be0f48647bb3905c\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\23a36136c3cac01186725282cfd6560763117fd1\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\b709fd450062509368cb61395b4d914b9eac77a5\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\3599e7ea7f9cf96a5a52a8c2d1240da004df354a\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\a5048f303287daa389d12e9441dda3e13da66559\output\jars\classes.jar;C:\Users\Harry\.android\build-cache\da64d0590d862f0acf400d390bb638192f512dbf\output\jars\classes.jar;E:\Tools\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar;D:\开发工具\android-studio 2.3\gradle\m2repository\com\android\databinding\baseLibrary\2.3.1\baseLibrary-2.3.1.jar;E:\Tools\android-sdk-windows\platforms\android-25\android.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="app_release" />
+          <option name="jvmTarget" value="1.6" />
+          <option name="addCompilerBuiltIns" value="true" />
+          <option name="loadBuiltInsFromDependencies" value="true" />
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
           <option name="languageVersion" value="1.1" />
           <option name="apiVersion" value="1.1" />
           <option name="pluginClasspaths">
@@ -79,13 +94,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
@@ -93,18 +101,50 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
+<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+=======
+      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data-binding-compiler" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data-binding-info" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data-binding-layout-out" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
+<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+=======
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-verifier" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-resources" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/reload-dex" />
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/restart-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
+<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+=======
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/split-apk" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
       <excludeFolder url="file://$MODULE_DIR$/build/kotlin" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
@@ -118,6 +158,7 @@
     <orderEntry type="library" exported="" name="fresco-0.13.0" level="project" />
     <orderEntry type="library" exported="" name="ijkplayer-java-0.6.0" level="project" />
     <orderEntry type="library" exported="" name="kotlin-stdlib-jre7-1.1.2-4" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" exported="" name="baseLibrary-2.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="adapters-1.3.1" level="project" />
@@ -127,14 +168,40 @@
     <orderEntry type="library" exported="" name="support-core-utils-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="bindingcollectionadapter-0.16" level="project" />
+=======
+    <orderEntry type="library" exported="" name="bolts-tasks-1.4.0" level="project" />
+    <orderEntry type="library" exported="" name="baseLibrary-2.3.1" level="project" />
+    <orderEntry type="library" exported="" name="support-core-ui-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="adapters-1.3.1" level="project" />
+    <orderEntry type="library" exported="" name="rxretrofit-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="ijkplayer-x86_64-0.6.0" level="project" />
+    <orderEntry type="library" exported="" name="fbcore-0.13.0" level="project" />
+    <orderEntry type="library" exported="" name="library-1.3.1" level="project" />
+    <orderEntry type="library" exported="" name="support-core-utils-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="support-fragment-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="bindingcollectionadapter-0.16" level="project" />
+    <orderEntry type="library" exported="" name="jiecaovideoplayer-4.7.0" level="project" />
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
     <orderEntry type="library" exported="" name="imagepipeline-0.13.0" level="project" />
     <orderEntry type="library" exported="" name="jiecaovideoplayer-4.7.0" level="project" />
     <orderEntry type="library" exported="" name="butterknife-annotations-8.5.1" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-base-0.13.0" level="project" />
+<<<<<<< HEAD
+=======
+    <orderEntry type="library" exported="" name="retrofit-2.2.0" level="project" />
+    <orderEntry type="library" exported="" name="adapter-rxjava-2.2.0" level="project" />
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
     <orderEntry type="library" exported="" name="annotations-13.0" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.7" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="rxjava-1.2.0" level="project" />
+<<<<<<< HEAD
+=======
+    <orderEntry type="library" exported="" name="converter-gson-2.2.0" level="project" />
+    <orderEntry type="library" exported="" name="okio-1.11.0" level="project" />
+    <orderEntry type="library" exported="" name="okhttp-3.6.0" level="project" />
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
     <orderEntry type="library" exported="" name="dagger-2.9" level="project" />
     <orderEntry type="library" exported="" name="support-v4-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-25.3.1" level="project" />
@@ -149,7 +216,10 @@
     <orderEntry type="library" exported="" name="animated-vector-drawable-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="ijkplayer-armv7a-0.6.0" level="project" />
     <orderEntry type="library" exported="" name="bindingcollectionadapter-recyclerview-0.16" level="project" />
+<<<<<<< HEAD
     <orderEntry type="module" module-name="rxretrofit" exported="" />
+=======
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
     <orderEntry type="module" module-name="aesrsa" exported="" />
   </component>
 </module>

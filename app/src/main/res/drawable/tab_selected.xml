@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -7,4 +8,15 @@
     <item android:drawable="@drawable/radio_btn_selected" android:state_checked="true"/>
     <item android:drawable="@drawable/radio_btn_normal"/>
 
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/radio_btn_selected" android:state_focused="true"/>
+    <item android:drawable="@drawable/radio_btn_selected" android:state_selected="true"/>
+    <item android:drawable="@drawable/radio_btn_selected" android:state_pressed="true"/>
+    <item android:drawable="@drawable/radio_btn_selected" android:state_checked="true"/>
+    <item android:drawable="@drawable/radio_btn_normal"/>
+
+>>>>>>> b21739f8016bf954db46b47da3b0383cfd98620a
 </selector>
